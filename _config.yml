@@ -1,4 +1,4 @@
 theme: jekyll-theme-minimal
 title: Tactician
 description: A Seamless, Interactive Tactic Learner and Prover for the Coq Proof Assistant
-show_downloads: "false"
+show_downloads: false
