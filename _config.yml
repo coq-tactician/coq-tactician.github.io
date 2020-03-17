@@ -1,4 +1,3 @@
-theme: jekyll-theme-cayman
+remote_theme: kevit/devaid-jekyll-theme 
 title: Tactician
 description: A Seamless, Interactive Tactic Learner and Prover for Coq
-show_downloads: false
