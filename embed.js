@@ -67,7 +67,7 @@ function embed() {
 
   // 1. Only try to load hljs or hljs-num when not loaded
   // 2. hljs-num should be loaded only after hljs is loaded
-  const HLJSURL = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js";
+  const HLJSURL = "highlight.pack.js";
   const HLJSNumURL = "https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.7.0/dist/highlightjs-line-numbers.min.js";
   const loadHLJS = (typeof hljs != "undefined" && typeof hljs.highlightBlock != "undefined") ?
     Promise.resolve() : loadScript(HLJSURL);
