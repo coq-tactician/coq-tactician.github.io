@@ -7,4 +7,4 @@ Lemma t : True.
 auto.
 Qed.
 ```
-<script src="http://gist-it.appspot.com/http://github.com/$file"></script>
+<script src="http://gist-it.appspot.com/https://github.com/coq/coq/blob/master/theories/Arith/Euclid.v"></script>
