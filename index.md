@@ -78,7 +78,7 @@ Then, open the [example file](Example.v) into the editor, and play around with i
 
 ## Recompiling the standard library
 
-By default, Tactician is not able to learn from the standard library. This is because the library was compiled before Tactician was installed, so it was not able to inject itself into the compilation process. We provide another package that allows will recompile the standard library for you. **Warning: This will backup and overwrite Coq's standard library. Upon removal of the package, the orginal files will be restored.**
+By default, Tactician is not able to learn from the standard library. This is because the library was compiled before Tactician was installed, so it was not able to inject itself into the compilation process. We provide another package that will recompile the standard library for you. **Warning: This will backup and overwrite Coq's standard library. Upon removal of the package, the orginal files will be restored.**
 
 ```
 opam install coq-tactician-stdlib
