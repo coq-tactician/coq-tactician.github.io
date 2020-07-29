@@ -1,7 +1,5 @@
-theme: jekyll-theme-cayman
+theme: jekyll-theme-slate
 title: The Tactician
 description: A Seamless, Interactive Tactic Learner and Prover for Coq
 
-kramdown:
-  syntax_highlighter_opts:
-    disable : true
+show_downloads: false
