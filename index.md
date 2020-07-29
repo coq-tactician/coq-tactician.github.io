@@ -55,7 +55,7 @@ This should be all that is required to prepare your system to intall Coq and Tac
 
 ## Installation of Coq and Tactician
 
-_Note: Tactician can be installed as a Opam package for Coq. However, the package does do some non-standard things and is not very well-tested yet. If you want to make sure that Tactician will not interfere with your regular Coq development, you might want to install in in a [local switch](https://opam.ocaml.org/blog/opam-local-switches/)._
+_Note: Tactician can be installed as a Opam package for Coq. However, the package does do some non-standard things and is not very well-tested yet. If you want to make sure that Tactician will not interfere with your regular Coq development, you might want to install it in a [local switch](https://opam.ocaml.org/blog/opam-local-switches/)._
 
 To install Coq, Coqide (optional but recommended) and Tactician, run the following commands:
 
