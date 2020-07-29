@@ -68,7 +68,7 @@ Make sure that you read the messages printed after installation. In particular, 
 
 ## Trying an example
 
-Tactician should now be ready to work. Tactician makes two tactics available to you. First, `suggest`, will provide you with a list of tactics that the system thinks will be useful for the current proof state. Second, `search` will try to automatically synthesize a proof for the current goal. We give an example that is also presented in our paper. For this, start CoqIde using
+Tactician should now be ready to work. Tactician makes two tactics available to you. First, `suggest` will provide you with a list of tactics that the system thinks will be useful for the current proof state. Second, `search` will try to automatically synthesize a proof for the current goal. We give an example that is also presented in our paper. For this, start CoqIde using
 
 ```
 coqide &
