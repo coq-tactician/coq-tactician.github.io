@@ -3,3 +3,6 @@ title: The Tactician
 description: A Seamless, Interactive Tactic Learner and Prover for Coq
 
 show_downloads: false
+
+github:
+  repository_url: https://github.com/coq-tactician/
