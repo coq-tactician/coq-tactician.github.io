@@ -18,7 +18,7 @@ automation.
 
 - [The Tactician: A Seamless, Interactive Tactic Learner and Prover for Coq](https://doi.org/10.1007/978-3-030-53518-6_17)
   
-  An extended version of this paper is available [here](paper.pdf)
+  **Note:** An extended version of this paper is available [here](paper.pdf)
   
   **Abstract:** We present Tactician, a tactic learner and prover for the
   Coq Proof Assistant. Tactician helps users make tactical proof decisions
