@@ -2,7 +2,7 @@
 layout: default
 ---
 
-![The Tactician](rooster-landing.png "The Tactician")
+<img src="rooster-landing.png" alt="The Tactician" title="The Tactician" style="width: 100%;" />
 
 Tactician is a tactic learner and prover for the Coq Proof Assistant.
 The system will help users make tactical proof decisions while they retain
