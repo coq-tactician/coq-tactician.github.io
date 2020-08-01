@@ -31,7 +31,7 @@ automation.
   
 - [Tactic Learning and Proving for the Coq Proof Assistant](https://doi.org/10.29007/wg1q)
 
-  **Abstract:** We present a system that utilizes machine learning for tactic proof search in the Coq Proof Assistant. In a similar vein as the TacticToe project    
+  **Abstract:** We present a system that utilizes machine learning for tactic proof search in the Coq Proof Assistant. In a similar vein as the TacticToe project
   for HOL4, our system predicts appropriate tactics and finds proofs in the form of tactic scripts. To do this, it learns from previous tactic scripts and how 
   they are applied to proof states. The performance of the system is evaluated on the Coq Standard Library. Currently, our predictor can identify the correct 
   tactic to be applied to a proof state 23.4% of the time. Our proof searcher can fully automatically prove 39.3% of the lemmas. When combined with the CoqHammer 
@@ -51,11 +51,11 @@ opam switch create 4.09.0
 eval $(opam env)
 ```
 
-This should be all that is required to prepare your system to intall Coq and Tactician.
+This should be all that is required to prepare your system to install Coq and Tactician.
 
 ## Installation of Coq and Tactician
 
-_Note: Tactician can be installed as a Opam package for Coq. However, the package does do some non-standard things and is not very well-tested yet. If you want to make sure that Tactician will not interfere with your regular Coq development, you might want to install it in a [local switch](https://opam.ocaml.org/blog/opam-local-switches/)._
+_Note: Tactician can be installed as an Opam package for Coq. However, the package does do some non-standard things and is not very well-tested yet. If you want to make sure that Tactician will not interfere with your regular Coq development, you might want to install it in a [local switch](https://opam.ocaml.org/blog/opam-local-switches/)._
 
 To install Coq, Coqide (optional but recommended) and Tactician, run the following commands:
 
