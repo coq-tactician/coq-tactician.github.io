@@ -4,7 +4,7 @@ layout: default
 
 <img src="rooster-landing.png" alt="The Tactician" title="The Tactician" style="width: 100%;" />
 
-test Tactician is a tactic learner and prover for the Coq Proof Assistant.
+test2 Tactician is a tactic learner and prover for the Coq Proof Assistant.
 The system will help users make tactical proof decisions while they retain
 control over the general proof strategy. To this end, Tactician will learn
 from previously written tactic scripts, and either gives the user suggestions
