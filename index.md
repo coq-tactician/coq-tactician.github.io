@@ -45,6 +45,7 @@ Below are the instructions to install Coq and Tactician through the Opam package
 Installation of Coq and Tactician happens through Opam. For people unfamiliar with OCaml and Opam follows a short installation guide for Linux (Windows is unsupported). First, [install](https://opam.ocaml.org/doc/Install.html#Using-your-distribution-39-s-package-system) Opam 2.x through your favorite package manager. You can check that the installed version is newer than 2.0 by running `opam --version`. Some package managers do not yet include Opam 2.0. For Ubuntu 18.04 a custom ppa is [available](https://opam.ocaml.org/doc/Install.html#Ubuntu). On other systems, you can use a [binary installation script](https://opam.ocaml.org/doc/Install.html#Binary-distribution). After installation, run the following commands to properly configure Opam.
 
 ```
+opam update
 opam init # answer yes to any questions the initialization script may ask
 eval $(opam env)
 opam switch create 4.09.0
