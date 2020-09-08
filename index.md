@@ -51,7 +51,7 @@ eval $(opam env)
 ```
 
 This should be all that is required to prepare your system to install Coq and Tactician. As the initialization script suggests, you might want to write `source ~/.bash_profile
-` in your `~/.bashrc` file. Otherwise you wil have to run `eval $(opam env)` everytime you start a new terminal.
+` in your `~/.bashrc` file. Otherwise you wil have to run `eval $(opam env)` everytime you start Coq from a new terminal.
 
 ## Installation of Coq and Tactician
 
