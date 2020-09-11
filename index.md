@@ -74,7 +74,7 @@ Tactician should now be ready to work. Tactician makes two tactics available to 
 coqide &
 ```
 
-Then, open the [example file](Example.v) into the editor, and play around with it (moving around the document in CoqIde happens using the arrows at the top).
+Then open the [example file](Example.v) into the editor, and play around with it (moving around the document in CoqIde happens using the arrows at the top).
 
 ## Recompiling the standard library
 
