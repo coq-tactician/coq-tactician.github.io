@@ -64,6 +64,7 @@ opam repo add tactician git+https://github.com/coq-tactician/tmp-archive.git
 opam depext -i coq coqide coq-tactician # Answer yes to all questions
 ```
 On some exotic linux distibutions, the command above may not know how to install packages. In that case, you have to manually install them through your package manager, and then finish the installation with `opam install coq coqide coq-tactician`.
+
 Make sure that you read the messages printed after installation. In particular, run `tactician enable` to activate the system. To de-activate the system (for example if you have another switch where Tactician is not installed), you can run `tactician disable`.
 
 ## Trying an example
