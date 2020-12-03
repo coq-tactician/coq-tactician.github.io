@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>The Tactician</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Tactician">
+  
+  <meta name="generator" content="Hugo 0.78.1" />
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/bootstrap/bootstrap.min.css" media='screen'>
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/themify-icons/themify-icons.css" >
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/featherlight/featherlight.min.css" >
+  
+  
+
+  
+  
+  <link rel="stylesheet" href="/coq-tactician.github.io/scss/style.css" media="screen">
+
+  
+  <link rel="shortcut icon" href="coq-tactician.github.io/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="coq-tactician.github.io/images/favicon.ico" type="image/x-icon">
+
+  
+  
+
+  
+  <meta property="og:title" content="The Tactician" />
+<meta property="og:description" content="Tactician" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="coq-tactician.github.io/" />
+
+
+  
+  
+
+</head>
+<body><!-- navigation -->
+<header class="sticky-top navigation top-0">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <a class="navbar-brand" href="/coq-tactician.github.io">
+        <img class="img-fluid" src="coq-tactician.github.io/images/logo.png" alt="Tactician">
+        Tactician
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h4 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav mx-auto align-items-center">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/">Home</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/manual">Manual</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/publications">Publications</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/demo.html">Online demo</a>
+          </li>
+          
+          
+          <li class="nav-link">
+            
+            
+          </li>
+        </ul>
+
+        
+        <div class="d-lg-none d-block">
+          
+          <a href="https://github.com/coq-tactician"
+            class="btn btn-sm btn-outline-primary ml-lg-4">Github</a>
+          
+          <a href="coq-tactician.github.io/changelog"
+            class="btn btn-sm btn-primary ml-lg-4">changelog</a>
+          
+        </div>
+        
+      </div>
+
+      
+
+      
+      <div class="d-lg-flex d-none">
+        
+        <a href="https://github.com/coq-tactician"
+          class="btn btn-sm btn-outline-primary ml-lg-4">Github</a>
+        
+        <a href="coq-tactician.github.io/changelog"
+          class="btn btn-sm btn-primary ml-lg-4">changelog</a>
+        
+      </div>
+      
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+
+
+<section class="section pb-0">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-lg-5 text-center text-lg-center">
+        
+        <h1 class="mb-5">The Tactician</h1>
+        <h4 class="mb-5">A Seamless, Interactive Tactic Learner and Prover for Coq</h4>
+        
+          
+          <a href="demo.html"
+             class="btn btn-lg btn-primary ml-lg-3">Online Demo</a>
+          
+          <a href="manual"
+             class="btn btn-lg btn-outline-primary ml-lg-3">Install now</a>
+          
+      </div>
+      <div class="col-lg-6 d-lg-block">
+        <img loading="lazy" src="coq-tactician.github.io/images/landing.png" alt="illustration" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="section pb-0">
+  <div class="container">
+      
+    <div class="row masonry-wrapper">
+      
+
+<div class="col-md-6 mb-4">
+  <div class="card card-lg">
+    <div class="card-body">
+      <h3 class="card-title h5">What is Tactician?</h3>
+      <p class="card-text content">Tactician is a tactic learner and prover for the Coq Proof Assistant.
+The system will help users make tactical proof decisions while they retain
+control over the general proof strategy. To this end, Tactician will learn
+from previously written tactic scripts, and either gives the user suggestions
+about the next tactic to be executed or altogether takes over the burden of
+proof synthesis. Tactician&rsquo;s goal is to provide the user with a seamless,
+interactive, and intuitive experience together with strong, adaptive proof
+automation.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-6 mb-4">
+  <div class="card card-lg">
+    <div class="card-body">
+      <h3 class="card-title h5">Can I use Tactician in a complex project with many dependencies?</h3>
+      <p class="card-text content"><p>Yes, the system has first-class support for Opam, Coq&rsquo;s package manager. When
+you install dependencies, Tactician can automatically instrument those
+developments and learn from them. When you work on your project, Tactician
+will have background knowledge on all modules you <code>Require</code>.</p>
+<p>On the flip side, using Tactician in your project does not mean you now have a hard
+dependency on Tactician. When the system finds a proof, it presents you with
+a caching witness that you can copy into your source file. As long as this witness
+remains valid, you can compile your project without having the main Tactician code-base
+installed. You only need 10 lines of helper tactics, which you can install
+through the <code>coq-tactician-dummy</code> package, or simply copy them into your development.</p>
+</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-6 mb-4">
+  <div class="card card-lg">
+    <div class="card-body">
+      <h3 class="card-title h5">Is Tactician useful for teaching?</h3>
+      <p class="card-text content">We have not yet performed a large-scale test on students, but we believe that
+the system may indeed be used in this capacity. Installation is straightforward
+and the system functions on Linux, macOS and Windows. The automation is
+push-button style without needing any configuration, and when a proof cannot be
+found, Tactician can still suggest tactics that may be useful.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-6 mb-4">
+  <div class="card card-lg">
+    <div class="card-body">
+      <h3 class="card-title h5">I have a great Machine Learning idea; can I implement it on top of Tactician?</h3>
+      <p class="card-text content">At the moment Tactician is not open to the greater machine learning community for
+experimentation. However, in the future we would like to offer Tactician as a
+platform that allows ML-researchers to create mathematics-solving agents and put
+them in the hands of Coq users. For now, we are looking for beta-testers to
+collaborate with and give this platform a clear shape. So if you have a good
+machine learning for theorem proving idea, please reach out to use to see if
+a collaboration is possible.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-6 mb-4">
+  <div class="card card-lg">
+    <div class="card-body">
+      <h3 class="card-title h5">How good is Tactician?</h3>
+      <p class="card-text content">todo</p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<footer>
+  <div class="container">
+    <div class="row align-items-center border-bottom py-5">
+      <div class="col-lg-4">
+        <ul class="list-inline footer-menu text-center text-lg-left">
+          
+        </ul>
+      </div>
+      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+        <a class="navbar-brand" href="/coq-tactician.github.io">
+          <img class="img-fluid" src="coq-tactician.github.io/images/logo.png" alt="Tactician">
+          Tactician
+        </a>
+      </div>
+      <div class="col-lg-4">
+        <ul class="list-inline social-icons text-lg-right text-center">
+          
+        </ul>
+      </div>
+    </div>
+    <div class="py-4 text-center">
+      <small class="text-light"></small>
+    </div>
+  </div>
+</footer>
+
+
+<script type="text/javascript">
+  var indexURL = "coq-tactician.github.io/index.json";
+  
+  var baseurl = "coq-tactician.github.io";
+  
+</script>
+
+
+
+
+
+<script src="coq-tactician.github.io/plugins/jQuery/jquery.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/bootstrap/bootstrap.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/turbolinks/turbolinks.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/masonry/masonry.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/featherlight/featherlight.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/clipboard/clipboard.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/match-height/jquery.matchHeight-min.js" ></script>
+
+
+
+
+
+<script src="/coq-tactician.github.io/js/script.min.js"></script>
+</body>
+
+</html>

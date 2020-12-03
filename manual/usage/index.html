@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>Usage</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Tactician">
+  
+  <meta name="generator" content="Hugo 0.78.1" />
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/bootstrap/bootstrap.min.css" media='screen'>
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/themify-icons/themify-icons.css" >
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/featherlight/featherlight.min.css" >
+  
+  
+
+  
+  
+  <link rel="stylesheet" href="/coq-tactician.github.io/scss/style.css" media="screen">
+
+  
+  <link rel="shortcut icon" href="coq-tactician.github.io/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="coq-tactician.github.io/images/favicon.ico" type="image/x-icon">
+
+  
+  
+
+  
+  <meta property="og:title" content="Usage" />
+<meta property="og:description" content="Tactician" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="coq-tactician.github.io/manual/usage/" />
+
+
+  
+  
+
+</head>
+<body><!-- navigation -->
+<header class="sticky-top navigation ">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <a class="navbar-brand" href="/coq-tactician.github.io">
+        <img class="img-fluid" src="coq-tactician.github.io/images/logo.png" alt="Tactician">
+        Tactician
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h4 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav mx-auto align-items-center">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/">Home</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/manual">Manual</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/publications">Publications</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/demo.html">Online demo</a>
+          </li>
+          
+          
+          <li class="nav-link">
+            
+            
+          </li>
+        </ul>
+
+        
+        <div class="d-lg-none d-block">
+          
+          <a href="https://github.com/coq-tactician"
+            class="btn btn-sm btn-outline-primary ml-lg-4">Github</a>
+          
+          <a href="coq-tactician.github.io/changelog"
+            class="btn btn-sm btn-primary ml-lg-4">changelog</a>
+          
+        </div>
+        
+      </div>
+
+      
+
+      
+      <div class="d-lg-flex d-none">
+        
+        <a href="https://github.com/coq-tactician"
+          class="btn btn-sm btn-outline-primary ml-lg-4">Github</a>
+        
+        <a href="coq-tactician.github.io/changelog"
+          class="btn btn-sm btn-primary ml-lg-4">changelog</a>
+        
+      </div>
+      
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<!-- details page -->
+<section class="pt-5">
+  <div class="container shadow section-sm rounded">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 d-none d-md-block">
+        <ul class="sidenav">
+          
+          
+          
+          
+          
+          
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/" title="Manual"
+  class="sidelist parent ">
+  <a href="coq-tactician.github.io/manual/">Manual</a>
+  
+  
+  <ul>
+    
+    
+    
+    
+    
+
+    
+    
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/installation/" title="Installation"
+  class="sidelist  ">
+  <a href="coq-tactician.github.io/manual/installation/">Installation</a>
+  
+  
+
+
+    
+    
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/usage/" title="Usage"
+  class="sidelist parent active">
+  <a href="coq-tactician.github.io/manual/usage/">Usage</a>
+  
+  
+
+
+    
+    
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/coq-packages/" title="Coq packages"
+  class="sidelist  ">
+  <a href="coq-tactician.github.io/manual/coq-packages/">Coq packages</a>
+  
+  
+
+
+    
+  </ul>
+</li>
+
+
+
+          
+          
+          
+          
+          
+          
+          
+        </ul>
+      </div>
+      <div class="col-md-8">
+        <div class="px-lg-5 px-4">
+          <h2 class="mb-4 font-weight-medium">Usage</h2>
+          
+          <div class="content"><p>After installation, it is easy to get started with Tactician. There are only two important commands,
+described in the section below. Below, we assume that you have executed <code>tactician enable</code>, so that Tactician
+is active when you start a new interactive document. You can try the commands below on our
+<a href="/Example.v">example file</a>.</p>
+<h4 id="basic-commands">Basic commands</h4>
+<ul>
+<li>
+<p><code>Suggest</code> is a query that will—as its name implies—suggest a list of tactics that may be useful to progress
+in the current proof state of your lemma. You can simply copy them into your interactive document and run them
+as any other tactic. It is not recommended to permanently keep the query <code>Suggest</code> in your developments.</p>
+</li>
+<li>
+<p><code>search</code> is a tactic that will try to synthesize a complete proof of the current goal. It does this based on
+the same suggestions as issued by <code>Suggest</code>. This tactic will run for as long as you let it, so when you run
+out of patience you might want to hit the &lsquo;interrupt&rsquo; button in your editor. When the tactic finds a proof,
+two things will happen.</p>
+<ul>
+<li>
+<p>To current goal will be finished, allowing you to move on to the next branch of the proof. This is
+convenient when you want to progress through the proof quickly and without any hassle.</p>
+</li>
+<li>
+<p>Tactician will issue a caching <em>tactic witness</em> of the form</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq">search <span style="color:#66d9ef">with</span> cache <span style="color:#f92672">(</span>t1<span style="color:#f92672">;</span> t2<span style="color:#f92672">;</span> <span style="color:#f92672">..;</span> tn<span style="color:#f92672">).</span>
+</code></pre></div><p>You can copy this witness, and replace the original invocation of <code>search</code> with it. The result will be
+that the next time you execute this command, the system will first try to execute the provided witness.
+If this succeeds, the command will quickly terminate so that you do not have to wait for Tactician to
+prove goals time and time again while you navigate through an interactive document.</p>
+<p>On the other hand, if the tactic witness turns out to be invalid (presumably due to a change in a
+definition or the statement of the current lemma), a new proof search will automatically be initiated
+to attempt a recovery of the witness.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="auxiliary-commands-and-usages">Auxiliary commands and usages</h4>
+<p>In addition to <code>Suggest</code> and <code>search</code>, we provide the following commands for more advanced use-cases.</p>
+<ul>
+<li>
+<p><code>tactician ignore tac</code> will execute the tactic <code>tac</code>, but while hiding it from Tacticians machine learning
+component. This can be useful when you use a tactic you know will confuse Tactician. One example is the unsafe
+tactic <a href="https://coq.inria.fr/refman/proof-engine/tactics.html#coq:tacn.change-no-check"><code>change_no_check</code></a>,
+which allows the system to easily prove any proof state it wants. Note that Tactician will automatically ignore
+<code>admit</code>.</p>
+<p>It is important to note that <code>tactician ignore</code> is not guaranteed to hide a tactic from Tactician when used
+as part of a larger tactic expression. For example, for the tactic expression</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span>tactician ignore <span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">].</span>
+</code></pre></div><p>it is guaranteed that the system will not learn from the individual tactic <code>constructor</code>. However, this
+tactic may or may not be used by Tactician as part of the larger expression. Whether or not this will happen
+depends on the version of Tactician and its internal settings.</p>
+</li>
+<li>
+<p><code>Unset Tactician Record</code> will disable any further tactic recording for machine learning purposes by tactician.
+This can later be re-enabled with <code>Set Tactician Record</code>. Disabling Tactician can be useful when you want
+to define and prove some lemmas you do not want Tactician to know about. Another useful idiom is</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#f92672">Unset</span> Tactician <span style="color:#f92672">Record</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> SecretLibrary<span style="color:#f92672">.</span>
+<span style="color:#f92672">Set</span> Tactician <span style="color:#f92672">Record</span><span style="color:#f92672">.</span>
+</code></pre></div><p>This will hide all the contents of <code>SecretLibrary</code> from Tactician.</p>
+</li>
+<li>
+<p>It is possible and sometimes useful to perform nested invocations of <code>search</code>. By default, Tactician will
+refrain from learning from its own commands, such as <code>search</code>. However, this is not the case when you use it
+as part of a tactic expression. An example is the expression</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> search<span style="color:#f92672">].</span>
+</code></pre></div><p>When you execute this tactic, the <code>search</code> command will be part of Ltac&rsquo;s backtracking behavior, as expected.
+Additionally, Tactician will pick up the whole expression as a future way to prove a goal. As such, when you
+next execute <code>search</code>, Tactician may start to nest these invocations with backtracking behavior. To keep this
+under control, nested search is bound to a depth of one.</p>
+<p>If you execute the command above, but do not want Tactician to start doing nested searches, you might want to
+wrap it in <code>tactician ignore</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq">tactician ignore <span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> search<span style="color:#f92672">].</span>
+</code></pre></div></li>
+</ul>
+</div>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+<footer>
+  <div class="container">
+    <div class="row align-items-center border-bottom py-5">
+      <div class="col-lg-4">
+        <ul class="list-inline footer-menu text-center text-lg-left">
+          
+        </ul>
+      </div>
+      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+        <a class="navbar-brand" href="/coq-tactician.github.io">
+          <img class="img-fluid" src="coq-tactician.github.io/images/logo.png" alt="Tactician">
+          Tactician
+        </a>
+      </div>
+      <div class="col-lg-4">
+        <ul class="list-inline social-icons text-lg-right text-center">
+          
+        </ul>
+      </div>
+    </div>
+    <div class="py-4 text-center">
+      <small class="text-light"></small>
+    </div>
+  </div>
+</footer>
+
+
+<script type="text/javascript">
+  var indexURL = "coq-tactician.github.io/index.json";
+  
+  var baseurl = "coq-tactician.github.io";
+  
+</script>
+
+
+
+
+
+<script src="coq-tactician.github.io/plugins/jQuery/jquery.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/bootstrap/bootstrap.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/turbolinks/turbolinks.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/masonry/masonry.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/featherlight/featherlight.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/clipboard/clipboard.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/match-height/jquery.matchHeight-min.js" ></script>
+
+
+
+
+
+<script src="/coq-tactician.github.io/js/script.min.js"></script>
+</body>
+
+</html>

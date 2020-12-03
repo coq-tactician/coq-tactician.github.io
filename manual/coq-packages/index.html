@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>Coq packages</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Tactician">
+  
+  <meta name="generator" content="Hugo 0.78.1" />
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/bootstrap/bootstrap.min.css" media='screen'>
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/themify-icons/themify-icons.css" >
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/featherlight/featherlight.min.css" >
+  
+  
+
+  
+  
+  <link rel="stylesheet" href="/coq-tactician.github.io/scss/style.css" media="screen">
+
+  
+  <link rel="shortcut icon" href="coq-tactician.github.io/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="coq-tactician.github.io/images/favicon.ico" type="image/x-icon">
+
+  
+  
+
+  
+  <meta property="og:title" content="Coq packages" />
+<meta property="og:description" content="Tactician" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="coq-tactician.github.io/manual/coq-packages/" />
+
+
+  
+  
+
+</head>
+<body><!-- navigation -->
+<header class="sticky-top navigation ">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <a class="navbar-brand" href="/coq-tactician.github.io">
+        <img class="img-fluid" src="coq-tactician.github.io/images/logo.png" alt="Tactician">
+        Tactician
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h4 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav mx-auto align-items-center">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/">Home</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/manual">Manual</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/publications">Publications</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/demo.html">Online demo</a>
+          </li>
+          
+          
+          <li class="nav-link">
+            
+            
+          </li>
+        </ul>
+
+        
+        <div class="d-lg-none d-block">
+          
+          <a href="https://github.com/coq-tactician"
+            class="btn btn-sm btn-outline-primary ml-lg-4">Github</a>
+          
+          <a href="coq-tactician.github.io/changelog"
+            class="btn btn-sm btn-primary ml-lg-4">changelog</a>
+          
+        </div>
+        
+      </div>
+
+      
+
+      
+      <div class="d-lg-flex d-none">
+        
+        <a href="https://github.com/coq-tactician"
+          class="btn btn-sm btn-outline-primary ml-lg-4">Github</a>
+        
+        <a href="coq-tactician.github.io/changelog"
+          class="btn btn-sm btn-primary ml-lg-4">changelog</a>
+        
+      </div>
+      
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<!-- details page -->
+<section class="pt-5">
+  <div class="container shadow section-sm rounded">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 d-none d-md-block">
+        <ul class="sidenav">
+          
+          
+          
+          
+          
+          
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/" title="Manual"
+  class="sidelist parent ">
+  <a href="coq-tactician.github.io/manual/">Manual</a>
+  
+  
+  <ul>
+    
+    
+    
+    
+    
+
+    
+    
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/installation/" title="Installation"
+  class="sidelist  ">
+  <a href="coq-tactician.github.io/manual/installation/">Installation</a>
+  
+  
+
+
+    
+    
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/usage/" title="Usage"
+  class="sidelist  ">
+  <a href="coq-tactician.github.io/manual/usage/">Usage</a>
+  
+  
+
+
+    
+    
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/coq-packages/" title="Coq packages"
+  class="sidelist parent active">
+  <a href="coq-tactician.github.io/manual/coq-packages/">Coq packages</a>
+  
+  
+
+
+    
+  </ul>
+</li>
+
+
+
+          
+          
+          
+          
+          
+          
+          
+        </ul>
+      </div>
+      <div class="col-md-8">
+        <div class="px-lg-5 px-4">
+          <h2 class="mb-4 font-weight-medium">Coq packages</h2>
+          
+          <div class="content"><p>Tactician has first-class support for packages installed through the <a href="https://opam.ocaml.org/">Opam</a> package
+manager. Below we explain how to install Coq packages in such a way that Tactician can learn from its contents.
+We also give recommendations on packaging your own development when you use Tactician in this development.</p>
+<h4 id="instrumenting-coq-packages">Instrumenting Coq packages</h4>
+<p>To instrument packages such that Tactician can learn from them during compilation/installation, you simply
+execute the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tactician inject
+</code></pre></div><p>After that, almost any package installed through <code>opam install</code> will be instrumented. There are some exceptions,
+such as developments that come with their own standard library. For these developments special support can be
+built into Tactician. Currently, there is special support for these packages:</p>
+<ul>
+<li><a href="http://coq.io/opam/coq-hott.8.11.html">coq-hott</a></li>
+</ul>
+<p>If your favorite package cannot currently be instrumented, please open an
+<a href="https://github.com/coq-tactician/coq-tactician/issues">issue</a>.</p>
+<p>If at any point you want to remove Tactician instrumentation from the build process, you can run
+<code>tactician eject</code>. This command will also help you recompile your currently installed packages to remove
+Tactician support.</p>
+<h4 id="packaging-developments-while-using-tactician">Packaging developments while using Tactician</h4>
+<p>When you work on a Coq development that is intended to be packaged with Opam, we recommend that you do <em>not</em>
+create a hard dependency on the <code>coq-tactician</code> package. This will create an unnecessary burden on your users,
+who might not want to use Tactician. For this reason, it is recommended that you enable Tactician in your
+day-to-day work by loading it through your <code>coqrc</code> file. The command <code>tactician enable</code> will help you with this.</p>
+<p>This does leave the question how users can compile Tactician&rsquo;s commands <em>not</em> having Tactician installed. To
+resolve this, your package can depend on <code>coq-tactician-dummy</code> (or you can just copy
+<a href="https://github.com/coq-tactician/coq-tactician-dummy/blob/master/theories/Ltac1Dummy.v">this</a> 12 line file
+into your development). You can load this package using</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq">From Tactician <span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> Ltac1Dummy<span style="color:#f92672">.</span>
+</code></pre></div><p>The dummy package contains trivial implementations of Tactician commands. In particular:</p>
+<ul>
+<li><code>search</code> will generate an error. You should modify all instances of <code>search</code> to include the generated
+witness of the form <code>search with cache tac</code>. The dummy version will try to use the witness, but does not
+perform a new search when the witness fails.</li>
+<li>The tactic <code>tactician ignore tac</code> is simply a wrapper for <code>tac</code>.</li>
+<li>The option <code>Unset Tactician Record</code> will do nothing. However, it will generate a warning. If you want to
+ignore this warning, you can surround these commands as follows:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;-unknown-option&#34;</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">Unset</span> Tactician <span style="color:#f92672">Record</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;unknown-option&#34;</span><span style="color:#f92672">.</span>
+</code></pre></div></li>
+<li><code>Suggest</code> is not functional, and you should not keep this command in your development when you release it.</li>
+</ul>
+</div>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+<footer>
+  <div class="container">
+    <div class="row align-items-center border-bottom py-5">
+      <div class="col-lg-4">
+        <ul class="list-inline footer-menu text-center text-lg-left">
+          
+        </ul>
+      </div>
+      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+        <a class="navbar-brand" href="/coq-tactician.github.io">
+          <img class="img-fluid" src="coq-tactician.github.io/images/logo.png" alt="Tactician">
+          Tactician
+        </a>
+      </div>
+      <div class="col-lg-4">
+        <ul class="list-inline social-icons text-lg-right text-center">
+          
+        </ul>
+      </div>
+    </div>
+    <div class="py-4 text-center">
+      <small class="text-light"></small>
+    </div>
+  </div>
+</footer>
+
+
+<script type="text/javascript">
+  var indexURL = "coq-tactician.github.io/index.json";
+  
+  var baseurl = "coq-tactician.github.io";
+  
+</script>
+
+
+
+
+
+<script src="coq-tactician.github.io/plugins/jQuery/jquery.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/bootstrap/bootstrap.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/turbolinks/turbolinks.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/masonry/masonry.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/featherlight/featherlight.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/clipboard/clipboard.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/match-height/jquery.matchHeight-min.js" ></script>
+
+
+
+
+
+<script src="/coq-tactician.github.io/js/script.min.js"></script>
+</body>
+
+</html>

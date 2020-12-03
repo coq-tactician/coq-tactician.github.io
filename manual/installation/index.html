@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8">
+  <title>Installation</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="description" content="Tactician">
+  
+  <meta name="generator" content="Hugo 0.78.1" />
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/bootstrap/bootstrap.min.css" media='screen'>
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/themify-icons/themify-icons.css" >
+  
+  
+  
+  <link rel="stylesheet" href="coq-tactician.github.io/plugins/featherlight/featherlight.min.css" >
+  
+  
+
+  
+  
+  <link rel="stylesheet" href="/coq-tactician.github.io/scss/style.css" media="screen">
+
+  
+  <link rel="shortcut icon" href="coq-tactician.github.io/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="coq-tactician.github.io/images/favicon.ico" type="image/x-icon">
+
+  
+  
+
+  
+  <meta property="og:title" content="Installation" />
+<meta property="og:description" content="Tactician" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="coq-tactician.github.io/manual/installation/" />
+
+
+  
+  
+
+</head>
+<body><!-- navigation -->
+<header class="sticky-top navigation ">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <a class="navbar-brand" href="/coq-tactician.github.io">
+        <img class="img-fluid" src="coq-tactician.github.io/images/logo.png" alt="Tactician">
+        Tactician
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h4 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <ul class="navbar-nav mx-auto align-items-center">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/">Home</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/manual">Manual</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/publications">Publications</a>
+          </li>
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="coq-tactician.github.io/coq-tactician.github.io/demo.html">Online demo</a>
+          </li>
+          
+          
+          <li class="nav-link">
+            
+            
+          </li>
+        </ul>
+
+        
+        <div class="d-lg-none d-block">
+          
+          <a href="https://github.com/coq-tactician"
+            class="btn btn-sm btn-outline-primary ml-lg-4">Github</a>
+          
+          <a href="coq-tactician.github.io/changelog"
+            class="btn btn-sm btn-primary ml-lg-4">changelog</a>
+          
+        </div>
+        
+      </div>
+
+      
+
+      
+      <div class="d-lg-flex d-none">
+        
+        <a href="https://github.com/coq-tactician"
+          class="btn btn-sm btn-outline-primary ml-lg-4">Github</a>
+        
+        <a href="coq-tactician.github.io/changelog"
+          class="btn btn-sm btn-primary ml-lg-4">changelog</a>
+        
+      </div>
+      
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+
+<!-- details page -->
+<section class="pt-5">
+  <div class="container shadow section-sm rounded">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 d-none d-md-block">
+        <ul class="sidenav">
+          
+          
+          
+          
+          
+          
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/" title="Manual"
+  class="sidelist parent ">
+  <a href="coq-tactician.github.io/manual/">Manual</a>
+  
+  
+  <ul>
+    
+    
+    
+    
+    
+
+    
+    
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/installation/" title="Installation"
+  class="sidelist parent active">
+  <a href="coq-tactician.github.io/manual/installation/">Installation</a>
+  
+  
+
+
+    
+    
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/usage/" title="Usage"
+  class="sidelist  ">
+  <a href="coq-tactician.github.io/manual/usage/">Usage</a>
+  
+  
+
+
+    
+    
+
+
+
+
+
+
+
+
+<li data-nav-id="coq-tactician.github.io/manual/coq-packages/" title="Coq packages"
+  class="sidelist  ">
+  <a href="coq-tactician.github.io/manual/coq-packages/">Coq packages</a>
+  
+  
+
+
+    
+  </ul>
+</li>
+
+
+
+          
+          
+          
+          
+          
+          
+          
+        </ul>
+      </div>
+      <div class="col-md-8">
+        <div class="px-lg-5 px-4">
+          <h2 class="mb-4 font-weight-medium">Installation</h2>
+          
+          <div class="content"><h4 id="windows">Windows</h4>
+<p>We recommend that you install Tactician either in a virtual machine, or under the Windows Subsystem for Linux.
+Instructions for installing Coq in this environment can be found
+<a href="https://github.com/coq/coq/wiki/Installation-of-Coq-on-Windows">here</a>. Further installation of Tactician
+is analogous to the <a href="#linux-and-macos">Linux and macOS instructions</a></p>
+<p>Alternatively, we offer an experimental, unsigned installer based on Coq&rsquo;s installer for Windows.
+Although all basic functionality works, this version is limited because it is difficult to impossible
+to install additional packages, and therefore it is also difficult to impossible for Tactician to learn
+from such packages.</p>
+<h4 id="linux-and-macos">Linux and macOS</h4>
+<p>Below are detailed instructions to install Coq and Tactician through the Opam package manager.
+If you are already familiar with Coq and Opam, you can find a summary <a href="/manual">here</a>.</p>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>The installation of Coq and Tactician happens through <a href="https://opam.ocaml.org/">Opam</a>.
+If you already have a version of Coq installed through the package manager of your linux distribution
+you need to install a second version via Opam.
+The first step is to
+<a href="https://opam.ocaml.org/doc/Install.html#Using-your-distribution-39-s-package-system">install</a>
+Opam version 2.x through your favorite package manager. You can check that the installed version
+is newer than 2.0 by running <code>opam --version</code>. Some package managers do not yet include Opam 2.0.
+For Ubuntu 18.04 and higher a custom ppa is <a href="https://opam.ocaml.org/doc/Install.html#Ubuntu">available</a>.
+On other systems, you can use a
+<a href="https://opam.ocaml.org/doc/Install.html#Binary-distribution">binary installation script</a>.</p>
+<p>After installation, some commands need to be executed to properly configure Opam. The following command
+will initialize Opam&rsquo;s local state and will prompt you about installing hooks into your terminal that
+will automatically update your <code>PATH</code> to include binaries installed through Opam.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opam init --bare <span style="color:#75715e"># Answer yes to questions</span>
+</code></pre></div><p>As the initialization script suggests, you might want to write <code>source ~/.bash_profile</code>
+in your <code>~/.bashrc</code> file. Otherwise you wil have to run <code>eval $(opam env)</code> everytime you start Coq
+from a new terminal.</p>
+<p>Now you need to create a switch to install Coq and Tactician in:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opam switch create coq-switch --empty
+eval <span style="color:#66d9ef">$(</span>opam env<span style="color:#66d9ef">)</span>
+</code></pre></div><p>This should be all that is required to prepare your system to install Coq and Tactician.</p>
+<h4 id="installation-of-coq-and-tactician">Installation of Coq and Tactician</h4>
+<p>To install Coq, Coqide (optional but recommended) and Tactician, run the following commands:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opam repo add coq-released https://coq.inria.fr/opam/released
+opam depext -i coq coqide coq-tactician <span style="color:#75715e"># Answer yes to all questions</span>
+</code></pre></div><p>On some exotic linux distibutions, the command above may not know how to install system packages.
+In that case, you have to manually install them through your systems package manager, and then finish
+the installation with <code>opam install coq coqide coq-tactician</code>.</p>
+<p>After installation, Tactician is not immediately enabled. This can be done by running the command
+<code>tactician enable</code>. This command will add some code to your <code>coqrc</code> file (a file that
+Coq loads automatically every time it is started) that will load Tactician. Further information about
+why Tactician is loaded this way can be found <a href="/manual/coq-packages">here</a>. If you wish to disable
+Tactician, this can be done with the command <code>tactician disable</code>.</p>
+<h4 id="trying-an-example">Trying an example</h4>
+<p>Tactician should now be ready to work. To make sure of this, you can test Tactician on an example file.
+First, start the Coq editor using the command</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">coqide &amp;
+</code></pre></div><p>Then open the <a href="Example.v">example file</a> into the editor, and play around with it (moving around the
+document in CoqIde happens using the arrows at the top). Make sure that the two new commands provided
+by Tactician, <code>Suggest</code> and <code>search</code> function properly.</p>
+<h4 id="recompiling-the-standard-library">Recompiling the standard library</h4>
+<p>By default, Tactician is not able to learn from the standard library. This is because the library was compiled before Tactician was installed, so it was not able to inject itself into the compilation process. We provide another package that will recompile the standard library for you. <strong>Warning: This will backup and overwrite Coq&rsquo;s standard library. Upon removal of the package, the orginal files will be restored.</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opam install coq-tactician-stdlib
+</code></pre></div><p>After installation, if you have any other Coq packages installed, you should run the command
+<code>tactician recompile</code>. This will assist you in recompiling these packages, which is necessary
+because they have a dependency on the recompiled standard library.</p>
+<p>Tactician has now learned from the standard library and should be able to synthesize proofs regarding it.</p>
+</div>
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+<footer>
+  <div class="container">
+    <div class="row align-items-center border-bottom py-5">
+      <div class="col-lg-4">
+        <ul class="list-inline footer-menu text-center text-lg-left">
+          
+        </ul>
+      </div>
+      <div class="col-lg-4 text-center mb-4 mb-lg-0">
+        <a class="navbar-brand" href="/coq-tactician.github.io">
+          <img class="img-fluid" src="coq-tactician.github.io/images/logo.png" alt="Tactician">
+          Tactician
+        </a>
+      </div>
+      <div class="col-lg-4">
+        <ul class="list-inline social-icons text-lg-right text-center">
+          
+        </ul>
+      </div>
+    </div>
+    <div class="py-4 text-center">
+      <small class="text-light"></small>
+    </div>
+  </div>
+</footer>
+
+
+<script type="text/javascript">
+  var indexURL = "coq-tactician.github.io/index.json";
+  
+  var baseurl = "coq-tactician.github.io";
+  
+</script>
+
+
+
+
+
+<script src="coq-tactician.github.io/plugins/jQuery/jquery.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/bootstrap/bootstrap.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/turbolinks/turbolinks.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/masonry/masonry.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/featherlight/featherlight.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/clipboard/clipboard.min.js" ></script>
+
+
+
+<script src="coq-tactician.github.io/plugins/match-height/jquery.matchHeight-min.js" ></script>
+
+
+
+
+
+<script src="/coq-tactician.github.io/js/script.min.js"></script>
+</body>
+
+</html>
