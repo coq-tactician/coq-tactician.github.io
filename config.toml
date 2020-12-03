@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "coq-tactician.github.io"
+baseURL = "https://coq-tactician.github.io/"
 title = "Tactician"
 theme = "godocs-1"
 # google analytics
@@ -50,10 +50,10 @@ link = "plugins/bootstrap/bootstrap.min.js"
 attributes = ""
 page = "/"
 
-[[params.plugins.js]]
-link = "plugins/turbolinks/turbolinks.js"
-attributes = ""
-page = "/"
+# [[params.plugins.js]]
+# link = "plugins/turbolinks/turbolinks.js"
+# attributes = ""
+# page = "/"
 
 [[params.plugins.js]]
 link = "plugins/masonry/masonry.min.js"
@@ -174,7 +174,7 @@ link = "changelog"
 [[params.landing]]
 style = "solid" # available style: solid, outline
 label = "Online Demo"
-link = "demo.html"
+link = "/demo.html"
 
 [[params.landing]]
 style = "outline" # available style: solid, outline
