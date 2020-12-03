@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications on Tactician</title>
-    <link>coq-tactician.github.io/publications/</link>
+    <link>https://coq-tactician.github.io/publications/</link>
     <description>Recent content in Publications on Tactician</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="coq-tactician.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://coq-tactician.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
