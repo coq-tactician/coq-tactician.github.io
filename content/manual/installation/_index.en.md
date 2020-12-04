@@ -18,6 +18,8 @@ from such packages.
 
 #### Linux and macOS
 
+**Note:** On macOS the instrumentation of packages currently does not work, due to [this](https://github.com/coq-tactician/coq-tactician/issues/2) bug.
+
 Below are detailed instructions to install Coq and Tactician through the Opam package manager.
 If you are already familiar with Coq and Opam, you can find a summary [here](/manual).
 
