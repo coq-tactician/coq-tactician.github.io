@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Tactician">
   
-  <meta name="generator" content="Hugo 0.78.1" />
+  <meta name="generator" content="Hugo 0.79.0" />
 
   
   
@@ -244,8 +244,9 @@ built into Tactician. Currently, there is special support for these packages:</p
 <p>If your favorite package cannot currently be instrumented, please open an
 <a href="https://github.com/coq-tactician/coq-tactician/issues">issue</a>.</p>
 <p>If at any point you want to remove Tactician instrumentation from the build process, you can run
-<code>tactician eject</code>. This command will also help you recompile your currently installed packages to remove
+`tactician eject**. This command will also help you recompile your currently installed packages to remove
 Tactician support.</p>
+<p><strong>Note:</strong> On macOS, due to limitations of the operating system, some packages cannot be instrumented. Currently only coq-hott is known not to work.</p>
 <h4 id="packaging-developments-while-using-tactician">Packaging developments while using Tactician</h4>
 <p>When you work on a Coq development that is intended to be packaged with Opam, we recommend that you do <em>not</em>
 create a hard dependency on the <code>coq-tactician</code> package. This will create an unnecessary burden on your users,
