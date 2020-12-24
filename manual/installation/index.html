@@ -266,11 +266,8 @@ eval <span style="color:#66d9ef">$(</span>opam env<span style="color:#66d9ef">)<
 <h4 id="installation-of-coq-and-tactician">Installation of Coq and Tactician</h4>
 <p>To install Coq, Coqide (optional but recommended) and Tactician, run the following commands:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opam repo add coq-released https://coq.inria.fr/opam/released
-opam depext -i coq coqide coq-tactician <span style="color:#75715e"># Answer yes to all questions</span>
-</code></pre></div><p>On some exotic linux distibutions, the command above may not know how to install system packages.
-In that case, you have to manually install them through your systems package manager, and then finish
-the installation with <code>opam install coq coqide coq-tactician</code>.</p>
-<p>After installation, Tactician is not immediately enabled. This can be done by running the command
+opam install coq coqide coq-tactician <span style="color:#75715e"># Answer yes to all questions</span>
+</code></pre></div><p>After installation, Tactician is not immediately enabled. This can be done by running the command
 <code>tactician enable</code>. This command will add some code to your <code>coqrc</code> file (a file that
 Coq loads automatically every time it is started) that will load Tactician. Further information about
 why Tactician is loaded this way can be found <a href="/manual/coq-packages">here</a>. If you wish to disable
