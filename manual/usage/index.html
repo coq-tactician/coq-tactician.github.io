@@ -263,6 +263,15 @@ to attempt a recovery of the witness.</p>
 </ul>
 </li>
 </ul>
+<h4 id="compiling-your-project-with-tactician">Compiling your project with Tactician</h4>
+<p>When you are working on a larger project, you most likely have multiple Coq files with dependencies between them.
+It would then be useful for Tactician to also learn from these dependencies. It is not recommended to create a
+hard dependency on Tactician in your project (see <a href="coq-packages">Coq packages</a> for more information). Instead,
+a command line utility <code>with-tactician</code> is provided. When you want Tactician to learn from your entire project,
+you can wrap your build command with <code>with-tactician</code>. For example, when you normally build your project using
+<code>make</code>, you now build it using <code>with-tactician make</code>. Similarly when you use Dune, you would now use
+<code>with-tactician dune build</code>. After that, <code>Require</code>ing a file from your project will make Tactician import the
+learned information.</p>
 <h4 id="auxiliary-commands-and-usages">Auxiliary commands and usages</h4>
 <p>In addition to <code>Suggest</code> and <code>search</code>, we provide the following commands for more advanced use-cases.</p>
 <ul>
