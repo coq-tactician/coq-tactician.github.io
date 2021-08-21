@@ -13,23 +13,52 @@ Fixpoint concat ls₁ ls₂ :=
   | x::ls₁' => x::(concat ls₁' ls₂)
   end where "ls₁ ++ ls₂" := (concat ls₁ ls₂).
 
-(* First we teach the automation something, simply by proving a lemma. *)
 Lemma concat_nil_r : forall ls, ls ++ [] = ls.
 Proof.
-Suggest.
-intros.
-induction ls.
+intros. induction ls.
 - simpl. reflexivity.
--  Suggest. simpl. f_equal. apply IHls.
+- simpl. f_equal. apply IHls.
 Qed.
 
-(* The system has immediately learnt from this lemma, and is now ready to
-   help you prove the next one: *)
-Lemma concat_assoc : forall ls ls₂ ls₃, (ls ++ ls₂) ++ ls₃ = ls ++ (ls₂ ++ ls₃).
+Lemma concat_assoc : 
+  forall ls ls₂ ls₃, (ls ++ ls₂) ++ ls₃ = ls ++ (ls₂ ++ ls₃).
 Proof.
-Suggest. search.
-(* Try copying in the caching tactic printed by Tactician on the right *)
+search.
 Qed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 (* This is a more advanced example of how to teach the automation about custom
    Ltac definitions. *)

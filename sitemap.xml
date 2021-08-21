@@ -1,45 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://coq-tactician.github.io/manual/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://coq-tactician.github.io/publications/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://coq-tactician.github.io/manual/installation/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://coq-tactician.github.io/manual/usage/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://coq-tactician.github.io/manual/coq-packages/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://coq-tactician.github.io/faq/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://coq-tactician.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://coq-tactician.github.io/changelog/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://coq-tactician.github.io/tags/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://coq-tactician.github.io/</loc>
   </url>
-  
 </urlset>
