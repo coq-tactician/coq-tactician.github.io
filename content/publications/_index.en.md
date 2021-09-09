@@ -5,6 +5,9 @@ draft: false
 layout: "changelog"
 ---
 
+- [Online Machine Learning Techniques for Coq: A Comparison](https://link.springer.com/chapter/10.1007%2F978-3-030-81097-9_5)
+  **Abstract:** We present a comparison of several online machine learning techniques for tactical learning and proving in the Coq proof assistant. This work builds on top of Tactician, a plugin for Coq that learns from proofs written by the user to synthesize new proofs. Learning happens in an online manner, meaning that Tactician’s machine learning model is updated immediately every time the user performs a step in an interactive proof. This has important advantages compared to the more studied offline learning systems: (1) it provides the user with a seamless, interactive experience with Tactician and, (2) it takes advantage of locality of proof similarity, which means that proofs similar to the current proof are likely to be found close by. We implement two online methods, namely approximate k-nearest neighbors based on locality sensitive hashing forests and random decision forests. Additionally, we conduct experiments with gradient boosted trees in an offline setting using XGBoost. We compare the relative performance of Tactician using these three learning methods on Coq’s standard library.
+
 - [The Tactician: A Seamless, Interactive Tactic Learner and Prover for Coq](https://doi.org/10.1007/978-3-030-53518-6_17)
   
   **Note:** An extended version of this paper is available [on arXiv](https://arxiv.org/abs/2008.00120)
