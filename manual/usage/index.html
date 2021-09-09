@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Tactician">
   
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.80.0" />
 
   
   
@@ -251,7 +251,7 @@ convenient when you want to progress through the proof quickly and without any h
 </li>
 <li>
 <p>Tactician will issue a caching <em>tactic witness</em> of the form</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq">search <span style="color:#66d9ef">with</span> cache <span style="color:#f92672">(</span>t1<span style="color:#f92672">;</span> t2<span style="color:#f92672">;</span> <span style="color:#f92672">..;</span> tn<span style="color:#f92672">).</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq">search <span style="color:#66d9ef">with</span> cache <span style="color:#f92672">(</span>t1<span style="color:#f92672">;</span> t2<span style="color:#f92672">;</span> <span style="color:#f92672">..;</span> tn<span style="color:#f92672">).</span>
 </code></pre></div><p>You can copy this witness, and replace the original invocation of <code>search</code> with it. The result will be
 that the next time you execute this command, the system will first try to execute the provided witness.
 If this succeeds, the command will quickly terminate so that you do not have to wait for Tactician to
@@ -263,15 +263,6 @@ to attempt a recovery of the witness.</p>
 </ul>
 </li>
 </ul>
-<h4 id="compiling-your-project-with-tactician">Compiling your project with Tactician</h4>
-<p>When you are working on a larger project, you most likely have multiple Coq files with dependencies between them.
-It would then be useful for Tactician to also learn from these dependencies. It is not recommended to create a
-hard dependency on Tactician in your project (see <a href="coq-packages">Coq packages</a> for more information). Instead,
-a command line utility <code>with-tactician</code> is provided. When you want Tactician to learn from your entire project,
-you can wrap your build command with <code>with-tactician</code>. For example, when you normally build your project using
-<code>make</code>, you now build it using <code>with-tactician make</code>. Similarly when you use Dune, you would now use
-<code>with-tactician dune build</code>. After that, <code>Require</code>ing a file from your project will make Tactician import the
-learned information.</p>
 <h4 id="auxiliary-commands-and-usages">Auxiliary commands and usages</h4>
 <p>In addition to <code>Suggest</code> and <code>search</code>, we provide the following commands for more advanced use-cases.</p>
 <ul>
@@ -283,7 +274,7 @@ which allows the system to easily prove any proof state it wants. Note that Tact
 <code>admit</code>.</p>
 <p>It is important to note that <code>tactician ignore</code> is not guaranteed to hide a tactic from Tactician when used
 as part of a larger tactic expression. For example, for the tactic expression</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span>tactician ignore <span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">].</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span>tactician ignore <span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">].</span>
 </code></pre></div><p>it is guaranteed that the system will not learn from the individual tactic <code>constructor</code>. However, this
 tactic may or may not be used by Tactician as part of the larger expression. Whether or not this will happen
 depends on the version of Tactician and its internal settings.</p>
@@ -292,7 +283,7 @@ depends on the version of Tactician and its internal settings.</p>
 <p><code>Unset Tactician Record</code> will disable any further tactic recording for machine learning purposes by tactician.
 This can later be re-enabled with <code>Set Tactician Record</code>. Disabling Tactician can be useful when you want
 to define and prove some lemmas you do not want Tactician to know about. Another useful idiom is</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#f92672">Unset</span> Tactician <span style="color:#f92672">Record</span><span style="color:#f92672">.</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#f92672">Unset</span> Tactician <span style="color:#f92672">Record</span><span style="color:#f92672">.</span>
 <span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> SecretLibrary<span style="color:#f92672">.</span>
 <span style="color:#f92672">Set</span> Tactician <span style="color:#f92672">Record</span><span style="color:#f92672">.</span>
 </code></pre></div><p>This will hide all the contents of <code>SecretLibrary</code> from Tactician.</p>
@@ -301,14 +292,14 @@ to define and prove some lemmas you do not want Tactician to know about. Another
 <p>It is possible and sometimes useful to perform nested invocations of <code>search</code>. By default, Tactician will
 refrain from learning from its own commands, such as <code>search</code>. However, this is not the case when you use it
 as part of a tactic expression. An example is the expression</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> search<span style="color:#f92672">].</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> search<span style="color:#f92672">].</span>
 </code></pre></div><p>When you execute this tactic, the <code>search</code> command will be part of Ltac&rsquo;s backtracking behavior, as expected.
 Additionally, Tactician will pick up the whole expression as a future way to prove a goal. As such, when you
 next execute <code>search</code>, Tactician may start to nest these invocations with backtracking behavior. To keep this
 under control, nested search is bound to a depth of one.</p>
 <p>If you execute the command above, but do not want Tactician to start doing nested searches, you might want to
 wrap it in <code>tactician ignore</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq">tactician ignore <span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> search<span style="color:#f92672">].</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq">tactician ignore <span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> search<span style="color:#f92672">].</span>
 </code></pre></div></li>
 </ul>
 </div>
