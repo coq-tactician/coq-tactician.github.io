@@ -125,9 +125,14 @@ url = "/publications"
 weight = 3
 
 [[Languages.en.menu.main]]
-name = "Online demo"
-url = "https://coq-tactician.github.io/demo.html"
+name = "People"
+url = "/people"
 weight = 4
+
+[[Languages.en.menu.main]]
+name = "Demo"
+url = "https://coq-tactician.github.io/demo.html"
+weight = 5
 
 # # footer menu
 # [[Languages.en.menu.footer]]
