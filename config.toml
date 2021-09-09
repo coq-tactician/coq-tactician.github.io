@@ -126,7 +126,7 @@ weight = 3
 
 [[Languages.en.menu.main]]
 name = "Online demo"
-url = "/demo.html"
+url = "https://coq-tactician.github.io/demo.html"
 weight = 4
 
 # # footer menu
@@ -174,7 +174,7 @@ link = "changelog"
 [[params.landing]]
 style = "solid" # available style: solid, outline
 label = "Online Demo"
-link = "/demo.html"
+link = "https://coq-tactician.github.io/demo.html"
 
 [[params.landing]]
 style = "outline" # available style: solid, outline
