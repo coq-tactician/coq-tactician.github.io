@@ -51,8 +51,8 @@ todo
 {{</ faq >}}
 
 {{< faq "What tools related to Tactician exist?" >}}
-- [CoqHammer](https://coqhammer.github.io/)
-  CoqHammer is an automated reasoning tool for Coq. It translates Coq's Calculus of Constructions
+- **[CoqHammer](https://coqhammer.github.io/)**
+  is an automated reasoning tool for Coq. It translates Coq's Calculus of Constructions
   into first-order logic and calls several external automatic theorem provers to prove a goal.
   When the external prover succeeds, an CoqHammer attempt to reconstruct this proof within Coq.
   Although CoqHammer and Tactician have similar goals (automatically proof lemmas for Coq), their
