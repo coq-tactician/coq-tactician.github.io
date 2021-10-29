@@ -111,7 +111,7 @@ Inductive nc_sublist : list -> list -> Prop :=
 | ns_cons₁ ls₁ ls₂ n : nc_sublist ls₁ ls₂ -> nc_sublist ls₁ (n::ls₂)
 | ns_cons₂ ls₁ ls₂ n : nc_sublist ls₁ ls₂ -> nc_sublist (n::ls₁) (n::ls₂).</textarea>
 <p>
-Here, <code>nc_siblist ls₁ ls₂</code> means that <code>ls₁</code> is a non-contiguous sublist of
+Here, <code>nc_sublist ls₁ ls₂</code> means that <code>ls₁</code> is a non-contiguous sublist of
 <code>ls₂</code>. We might now try to prove the proposition <code>nc_sublist (9::3::[]) (4::7::9::3::[])</code>.
 Altough this is clearly true, manually choosing the right constructors of <code>nc_sublist</code> to prove this
 is not entirely trivial. Instead, we can write a tactic that automates this for us. The following tactic will
