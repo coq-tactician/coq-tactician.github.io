@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Tactician">
   
-  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   
   
@@ -240,7 +240,7 @@ We also give recommendations on packaging your own development when you use Tact
 <h4 id="instrumenting-coq-packages">Instrumenting Coq packages</h4>
 <p>To instrument packages such that Tactician can learn from them during compilation/installation, you simply
 execute the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tactician inject
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tactician inject
 </code></pre></div><p>After that, almost any package installed through <code>opam install</code> will be instrumented. There are some exceptions,
 such as developments that come with their own standard library. For these developments special support can be
 built into Tactician. Currently, there is special support for these packages:</p>
@@ -262,7 +262,7 @@ day-to-day work by loading it through your <code>coqrc</code> file. The command 
 resolve this, your package can depend on <code>coq-tactician-dummy</code> (or you can just copy
 <a href="https://github.com/coq-tactician/coq-tactician-dummy/blob/master/theories/Ltac1Dummy.v">this</a> 12 line file
 into your development). You can load this package using</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq">From Tactician <span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> Ltac1Dummy<span style="color:#f92672">.</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq">From Tactician <span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> Ltac1Dummy<span style="color:#f92672">.</span>
 </code></pre></div><p>The dummy package contains trivial implementations of Tactician commands. In particular:</p>
 <ul>
 <li><code>search</code> will generate an error. You should modify all instances of <code>search</code> to include the generated
@@ -271,7 +271,7 @@ perform a new search when the witness fails.</li>
 <li>The tactic <code>tactician ignore tac</code> is simply a wrapper for <code>tac</code>.</li>
 <li>The option <code>Unset Tactician Record</code> will do nothing. However, it will generate a warning. If you want to
 ignore this warning, you can surround these commands as follows:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;-unknown-option&#34;</span><span style="color:#f92672">.</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-coq" data-lang="coq"><span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;-unknown-option&#34;</span><span style="color:#f92672">.</span>
 <span style="color:#f92672">Unset</span> Tactician <span style="color:#f92672">Record</span><span style="color:#f92672">.</span>
 <span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;unknown-option&#34;</span><span style="color:#f92672">.</span>
 </code></pre></div></li>
