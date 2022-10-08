@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Tactician">
   
-  <meta name="generator" content="Hugo 0.88.1" />
+  <meta name="generator" content="Hugo 0.102.3" />
 
   
   
@@ -175,7 +175,7 @@
 
 
 <li data-nav-id="https://coq-tactician.github.io/manual/installation/" title="Installation"
-  class="sidelist parent active">
+  class="sidelist  active">
   <a href="https://coq-tactician.github.io/manual/installation/">Installation</a>
   
   
@@ -261,19 +261,19 @@ On other systems, you can use a
 <p>After installation, some commands need to be executed to properly configure Opam. The following command
 will initialize Opam&rsquo;s local state and will prompt you about installing hooks into your terminal that
 will automatically update your <code>PATH</code> to include binaries installed through Opam.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opam init --bare <span style="color:#75715e"># Answer yes to questions</span>
-</code></pre></div><p>As the initialization script suggests, you might want to write <code>source ~/.bash_profile</code>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>opam init --bare <span style="color:#75715e"># Answer yes to questions</span>
+</span></span></code></pre></div><p>As the initialization script suggests, you might want to write <code>source ~/.bash_profile</code>
 in your <code>~/.bashrc</code> file. Otherwise you wil have to run <code>eval $(opam env)</code> everytime you start Coq
 from a new terminal.</p>
 <p>Now you need to create a switch to install Coq and Tactician in:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opam switch create coq-switch --empty
-eval <span style="color:#66d9ef">$(</span>opam env<span style="color:#66d9ef">)</span>
-</code></pre></div><p>This should be all that is required to prepare your system to install Coq and Tactician.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>opam switch create coq-switch --empty
+</span></span><span style="display:flex;"><span>eval <span style="color:#66d9ef">$(</span>opam env<span style="color:#66d9ef">)</span>
+</span></span></code></pre></div><p>This should be all that is required to prepare your system to install Coq and Tactician.</p>
 <h4 id="installation-of-coq-and-tactician">Installation of Coq and Tactician</h4>
 <p>To install Coq, Coqide (optional but recommended) and Tactician, run the following commands:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opam repo add coq-released https://coq.inria.fr/opam/released
-opam depext -i coq coqide coq-tactician <span style="color:#75715e"># Answer yes to all questions</span>
-</code></pre></div><p>On some exotic linux distibutions, the command above may not know how to install system packages.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>opam repo add coq-released https://coq.inria.fr/opam/released
+</span></span><span style="display:flex;"><span>opam depext -i coq coqide coq-tactician <span style="color:#75715e"># Answer yes to all questions</span>
+</span></span></code></pre></div><p>On some exotic linux distibutions, the command above may not know how to install system packages.
 In that case, you have to manually install them through your systems package manager, and then finish
 the installation with <code>opam install coq coqide coq-tactician</code>.</p>
 <p>After installation, Tactician is not immediately enabled. This can be done by running the command
@@ -284,14 +284,14 @@ Tactician, this can be done with the command <code>tactician disable</code>.</p>
 <h4 id="trying-an-example">Trying an example</h4>
 <p>Tactician should now be ready to work. To make sure of this, you can test Tactician on an example file.
 First, start the Coq editor using the command</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">coqide &amp;
-</code></pre></div><p>Then open the <a href="Example.v">example file</a> into the editor, and play around with it (moving around the
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>coqide &amp;
+</span></span></code></pre></div><p>Then open the <a href="Example.v">example file</a> into the editor, and play around with it (moving around the
 document in CoqIde happens using the arrows at the top). Make sure that the two new commands provided
 by Tactician, <code>Suggest</code> and <code>search</code> function properly.</p>
 <h4 id="recompiling-the-standard-library">Recompiling the standard library</h4>
 <p>By default, Tactician is not able to learn from the standard library. This is because the library was compiled before Tactician was installed, so it was not able to inject itself into the compilation process. We provide another package that will recompile the standard library for you. <strong>Warning: This will backup and overwrite Coq&rsquo;s standard library. Upon removal of the package, the orginal files will be restored.</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opam install coq-tactician-stdlib
-</code></pre></div><p>After installation, if you have any other Coq packages installed, you should run the command
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>opam install coq-tactician-stdlib
+</span></span></code></pre></div><p>After installation, if you have any other Coq packages installed, you should run the command
 <code>tactician recompile</code>. This will assist you in recompiling these packages, which is necessary
 because they have a dependency on the recompiled standard library.</p>
 <p>Tactician has now learned from the standard library and should be able to synthesize proofs regarding it.</p>
