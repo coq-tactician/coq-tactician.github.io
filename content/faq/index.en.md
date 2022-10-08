@@ -37,13 +37,12 @@ found, Tactician can still suggest tactics that may be useful.
 {{</ faq >}}
 
 {{< faq "I have a great Machine Learning idea; can I implement it on top of Tactician?" >}}
-At the moment Tactician is not open to the greater machine learning community for
-experimentation. However, in the future we would like to offer Tactician as a
-platform that allows ML-researchers to create mathematics-solving agents and put
-them in the hands of Coq users. For now, we are looking for beta-testers to
-collaborate with and give this platform a clear shape. So if you have a good
-machine learning for theorem proving idea, please reach out to use to see if
-a collaboration is possible.
+Yes! Tactician is an extensible platform that can incorporate multiple machine
+learning models and search procedures. If you want to contribute your ideas, you
+can either work on the Tactician code-base directly, or you can create a plugin
+for Tactician in a separate repository. We are always searching for people
+that want to develop new ideas, either independently or in collaboration with us.
+If you'd like more information, please reach out to us!
 {{</ faq >}}
 
 {{< faq "How good is Tactician?" >}}

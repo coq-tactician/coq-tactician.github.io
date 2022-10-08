@@ -24,7 +24,7 @@ If your favorite package cannot currently be instrumented, please open an
 [issue](https://github.com/coq-tactician/coq-tactician/issues).
 
 If at any point you want to remove Tactician instrumentation from the build process, you can run
-`tactician eject**. This command will also help you recompile your currently installed packages to remove
+`tactician eject`. This command will also help you recompile your currently installed packages to remove
 Tactician support.
 
 **Note:** On macOS, due to limitations of the operating system, some packages cannot be instrumented. Currently only coq-hott is known not to work.
