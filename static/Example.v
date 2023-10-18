@@ -27,7 +27,7 @@ Qed.
 Lemma concat_assoc : forall ls ls₂ ls₃, (ls ++ ls₂) ++ ls₃ = ls ++ (ls₂ ++ ls₃).
 Proof.
 Suggest.
-search.
+synth.
 (* Try copying in the caching tactic printed by Tactician on the right *)
 Qed.
 
@@ -51,12 +51,12 @@ solve_nc_sublist.
 Qed.
 Lemma ex2 ls : 1::2::ls ++ [] = 1::2::ls.
 rewrite concat_nil_r. reflexivity.
-(* Note that 'search' can also find a proof by repoving concat_nil_r.
+(* Note that 'synth' can also find a proof by repoving concat_nil_r.
    However, we need the example of rewriting with concat_nil_r for the next
    lemma. *)
 Qed.
 
 Lemma dec2 ls₁ ls₂: nc_sublist ls₁ ls₂ ->
   nc_sublist (7::9::13::ls₁) (8::5::7::[] ++ 9::13::ls₂ ++ []).
-search.
+synth.
 Qed.
