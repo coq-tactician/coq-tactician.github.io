@@ -38,6 +38,8 @@ two things will happen.
 
 In addition to `Suggest` and `synth`, we provide the following commands for more advanced use-cases.
 
+- `Debug Suggest` and `debug synth` are variations of the commands above that will output debugging information.
+
 - `tactician ignore tac` will execute the tactic `tac`, but while hiding it from Tacticians machine learning
   component. This can be useful when you use a tactic you know will confuse Tactician. One example is the unsafe
   tactic [`change_no_check`](https://coq.inria.fr/refman/proof-engine/tactics.html#coq:tacn.change-no-check),
