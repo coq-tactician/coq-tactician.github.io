@@ -30,6 +30,7 @@ inductively defined with the constructors `nil` for the empty list and
 
 ```coq
 From Tactician Require Import Ltac1.
+
 Inductive list :=
 | nil  : list
 | cons : nat -> list -> list.
@@ -93,7 +94,8 @@ ready to help you prove the next lemma, namely the associativity of
 list concatenation.
 
 ```coq
-Lemma concat_assoc : forall ls ls2 ls3, (ls ++ ls2) ++ ls3 = ls ++ (ls2 ++ ls3).
+Lemma concat_assoc :
+  forall ls ls2 ls3, (ls ++ ls2) ++ ls3 = ls ++ (ls2 ++ ls3).
 Proof.
 ```
 
@@ -201,12 +203,13 @@ Qed.
    var jscoq_opts = {
        implicit_libs: false,
        focus: false,
-        debug: true,
-        init_pkgs: ['init', 'coq-base', 'coq-collections', 'coq-arith', 'tactician'],
-        all_pkgs:  {
-            './node_modules/jscoq/coq-pkgs': ['coq'],
-            './node_modules/@jscoq/tactician/coq-pkgs': ['tactician']}
-    }
+       debug: true,
+       init_pkgs: ['init', 'coq-base', 'tactician'],
+       init_import: ['Tactician.Ltac1'],
+       all_pkgs:  {
+           './node_modules/jscoq/coq-pkgs': ['coq'],
+           './node_modules/@jscoq/tactician/coq-pkgs': ['tactician']}
+   }
 
     JsCoq.start(jscoq_ids, jscoq_opts);
   </script>
