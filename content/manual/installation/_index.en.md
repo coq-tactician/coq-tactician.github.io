@@ -52,19 +52,21 @@ opam switch create coq-switch --empty
 eval $(opam env)
 ```
 
-This should be all that is required to prepare your system to install Coq and Tactician. 
+This should be all that is required to prepare your system to install Coq and Tactician.
 
-#### Installation of Coq and Tactician
+#### Installation of Tactician for Coq versions >= v8.17
 
 To install Coq, Coqide (optional but recommended) and Tactician, run the following commands:
 
 ```bash
 opam repo add coq-released https://coq.inria.fr/opam/released
-opam depext -i coq coqide coq-tactician # Answer yes to all questions
+opam install coq-core coq-tactician # Answer yes to all questions
+tactician inject
+opam install coq coqide
 ```
-On some exotic linux distibutions, the command above may not know how to install system packages.
-In that case, you have to manually install them through your systems package manager, and then finish
-the installation with `opam install coq coqide coq-tactician`.
+On some exotic linux distibutions, the commands above may not know how to install system packages.
+In that case, you have to manually install them through your systems package manager, and then
+re-run these commands
 
 After installation, Tactician is not immediately enabled. This can be done by running the command
 `tactician enable`. This command will add some code to your `coqrc` file (a file that
@@ -84,16 +86,22 @@ Then open the [example file](Example.v) into the editor, and play around with it
 document in CoqIde happens using the arrows at the top). Make sure that the two new commands provided
 by Tactician, `Suggest` and `synth` function properly.
 
-#### Recompiling the standard library
+#### Installation of Tactician for Coq versions < v8.17
 
-By default, Tactician is not able to learn from the standard library. This is because the library was compiled before Tactician was installed, so it was not able to inject itself into the compilation process. We provide another package that will recompile the standard library for you. **Warning: This will backup and overwrite Coq's standard library. Upon removal of the package, the orginal files will be restored.**
+For versions of Coq older than v8.17, there was no split between Coq's core and standard library into
+the packages `coq-core` and `coq-stdlib`. This means that for those versions, Tactician is unable to
+inject itself into the build process of `coq-stdlib`, because of a circular dependency. Hence, it is
+unable to learn from the proofs available in the standard library.
+
+To remedy this, a special package `coq-tactician-stdlib` was created, that recompiles the standard library
+with Tacticians instrumentation loaded. **Warning: This will backup and overwrite Coq's standard library.
+Upon removal of the package, the original files will be restored.**
 
 ```bash
-opam install coq-tactician-stdlib
+opam repo add coq-released https://coq.inria.fr/opam/released
+opam install coq.8.16.1 coqide coq-tactician coq-tactician-stdlib # Answer yes to all questions
+tactician inject
 ```
 
-After installation, if you have any other Coq packages installed, you should run the command
-`tactician recompile`. This will assist you in recompiling these packages, which is necessary
-because they have a dependency on the recompiled standard library.
-
-Tactician has now learned from the standard library and should be able to synthesize proofs regarding it. 
+After installing `coq-tactician-stdlib`, Tactician has learned from the standard library and should
+be able to synthesize proofs regarding it.

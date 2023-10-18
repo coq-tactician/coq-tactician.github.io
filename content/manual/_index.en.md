@@ -15,6 +15,7 @@ If you'd like a more in-depth guide, see [installation](installation).
 opam install coq-tactician
 tactician enable # Optional but recoomended, adds Tactician to your coqrc
 tactician inject # Optional, instrument installation of Opam packages
+# For Coq < 8.17 only:
 opam install coq-tactician-stdlib # Optional, recompiles standard library
 ```
 
