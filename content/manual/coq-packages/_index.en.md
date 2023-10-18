@@ -46,9 +46,9 @@ From Tactician Require Import Ltac1Dummy.
 
 The dummy package contains trivial implementations of Tactician commands. In particular:
 
-- `search` will generate an error. You should modify all instances of `search` to include the generated
-   witness of the form `search with cache tac`. The dummy version will try to use the witness, but does not
-   perform a new search when the witness fails.
+- `synth` will generate an error. You should modify all instances of `synth` to include the generated
+   witness of the form `synth with cache tac`. The dummy version will try to use the witness, but does not
+   perform a new proof search when the witness fails.
 - The tactic `tactician ignore tac` is simply a wrapper for `tac`.
 - The option `Unset Tactician Record` will do nothing. However, it will generate a warning. If you want to
   ignore this warning, you can surround these commands as follows:

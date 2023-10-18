@@ -22,7 +22,7 @@ opam install coq-tactician-stdlib # Optional, recompiles standard library
 
 If you have chosen to run `tactician enable` during installation, Tactician will be
 immediately ready to go.
-The two most important commands of Tactician are `Suggest` and `search`.
+The two most important commands of Tactician are `Suggest` and `synth`.
 Both should be used in proof mode. You can try them out on our [example](/Example.v) file.
 A more comprehensive description of Tactician's commands can be found in [usage](usage).
 To instrument packages with Tactician support, see [Coq packages](coq-packages).
