@@ -4,6 +4,43 @@ layout: "changelog"
 draft: false
 ---
 
+### Announcing Tactician version 1.0 beta2
+
+After almost three years of development, we are happy to announce Tactician 1.0 beta2. It is available for all
+Coq versions between v8.12 and v8.18. Tactician is a proof
+synthesis system that uses data from existing theorems in order to help users write new proofs. It can adapt
+to, and learn from new developments on the fly. For details, see the [website](https://coq-tactician.github.io)
+and the list of [publications](https://coq-tactician.github.io/publications).
+
+Most of the development time in the past three years went to bug fixes, stability improvements, performance
+improvements and other internal changes. No detailed changelog was kept, but we believe the usability has
+improved significantly. There have also been a number of important user-facing changes:
+
+- The `search` tactic has been renamed to `synth` to avoid confusion with Coq's internal `Search` command.
+  (The `Suggest` command remains the same.)
+- Starting from Coq v8.17, the standard library has been split from Coq's core into the packages `coq-core`
+  and `coq-stdlib`. The Tactician package now depends only `coq-core`. This allows Tactician to instrument
+  `coq-stdlib` while it is being installed in order to learn from it, obviating the need for the
+  `coq-tactician-stdlib` package. (See the [manual](https://coq-tactician.github.io/manual/) for further
+  instructions.)
+- In the past years, the landscape of available Coq editors has changed significantly. The support for the
+  various editors is as follows:
+  + Coqide: Fully supported.
+  + Emacs with Proof General: Fully supported.
+  + Coq-lsp: Partially supported. Tactician can be loaded through `From Tactician Require Import Ltac1`,
+  + but support for injecting Tactician through `tactician exec code` is unavailable.
+  + VsCoq Legacy: Supported. Support for launching through `tactician exec code` is available starting Coq
+    v8.12.
+  + VsCoq 2.0: Currently incompatible with Tactician.
+  If you encounter any issues with these editors, please open an
+  [issue](https://github.com/coq-tactician/coq-tactician/issues).
+- Tactician is now fully open source under the MIT license. As such, this is an invitation for other researchers
+  to use the data available in Tactician to build their own proof synthesizer. If you have a great idea,
+  don't hesitate to reach out for a potential collaboration.
+
+Any feedback on this beta release is appreciated. Do not hesitate to open an 
+[issue](https://github.com/coq-tactician/coq-tactician/issues).
+
 ### Announcing Tactician version 1.0 beta1
 
 We would like to announce Tactician 1.0 beta1, the first official release of Tactician.
