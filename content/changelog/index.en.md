@@ -18,20 +18,21 @@ improved significantly. There have also been a number of important user-facing c
 
 - The `search` tactic has been renamed to `synth` to avoid confusion with Coq's internal `Search` command.
   (The `Suggest` command remains the same.)
-- Starting from Coq v8.17, the standard library has been split from Coq's core into the packages `coq-core`
-  and `coq-stdlib`. The Tactician package now depends only `coq-core`. This allows Tactician to instrument
-  `coq-stdlib` while it is being installed in order to learn from it, obviating the need for the
-  `coq-tactician-stdlib` package. (See the [manual](https://coq-tactician.github.io/manual/) for further
-  instructions.)
+- Starting from Coq v8.17, the standard library has been split from Coq's core, resulting in the packages
+  `coq-core` and `coq-stdlib`. The `coq-tactician` package now depends only `coq-core`. This allows
+  Tactician to instrument `coq-stdlib` while it is being installed in order to learn from it, obviating the
+  need for the `coq-tactician-stdlib` package. (See the [manual](https://coq-tactician.github.io/manual/) for 
+  further instructions.)
 - In the past years, the landscape of available Coq editors has changed significantly. The support for the
   various editors is as follows:
   + Coqide: Fully supported.
   + Emacs with Proof General: Fully supported.
   + Coq-lsp: Partially supported. Tactician can be loaded through `From Tactician Require Import Ltac1`,
-  + but support for injecting Tactician through `tactician exec code` is unavailable.
-  + VsCoq Legacy: Supported. Support for launching through `tactician exec code` is available starting Coq
+    but support for injecting Tactician through launching VsCode with `tactician exec code` is unavailable.
+  + VsCoq Legacy: Supported. Support for launching VsCode through `tactician exec code` is available starting Coq
     v8.12.
   + VsCoq 2.0: Currently incompatible with Tactician.
+
   If you encounter any issues with these editors, please open an
   [issue](https://github.com/coq-tactician/coq-tactician/issues).
 - Tactician is now fully open source under the MIT license. As such, this is an invitation for other researchers
