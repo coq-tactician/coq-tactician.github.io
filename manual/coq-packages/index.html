@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Tactician">
   
-  <meta name="generator" content="Hugo 0.102.3" />
+  <meta name="generator" content="Hugo 0.119.0">
 
   
   
@@ -41,7 +41,6 @@
 <meta property="og:description" content="Tactician" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://coq-tactician.github.io/manual/coq-packages/" />
-
 
   
   
@@ -265,9 +264,9 @@ into your development). You can load this package using</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span>From Tactician <span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> Ltac1Dummy<span style="color:#f92672">.</span>
 </span></span></code></pre></div><p>The dummy package contains trivial implementations of Tactician commands. In particular:</p>
 <ul>
-<li><code>search</code> will generate an error. You should modify all instances of <code>search</code> to include the generated
-witness of the form <code>search with cache tac</code>. The dummy version will try to use the witness, but does not
-perform a new search when the witness fails.</li>
+<li><code>synth</code> will generate an error. You should modify all instances of <code>synth</code> to include the generated
+witness of the form <code>synth with cache tac</code>. The dummy version will try to use the witness, but does not
+perform a new proof search when the witness fails.</li>
 <li>The tactic <code>tactician ignore tac</code> is simply a wrapper for <code>tac</code>.</li>
 <li>The option <code>Unset Tactician Record</code> will do nothing. However, it will generate a warning. If you want to
 ignore this warning, you can surround these commands as follows:

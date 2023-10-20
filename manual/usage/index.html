@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Tactician">
   
-  <meta name="generator" content="Hugo 0.102.3" />
+  <meta name="generator" content="Hugo 0.119.0">
 
   
   
@@ -41,7 +41,6 @@
 <meta property="og:description" content="Tactician" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://coq-tactician.github.io/manual/usage/" />
-
 
   
   
@@ -246,19 +245,19 @@ in the current proof state of your lemma. You can simply copy them into your int
 as any other tactic. It is not recommended to permanently keep the query <code>Suggest</code> in your developments.</p>
 </li>
 <li>
-<p><code>search</code> is a tactic that will try to synthesize a complete proof of the current goal. It does this based on
+<p><code>synth</code> is a tactic that will try to synthesize a complete proof of the current goal. It does this based on
 the same suggestions as issued by <code>Suggest</code>. This tactic will run for as long as you let it, so when you run
 out of patience you might want to hit the &lsquo;interrupt&rsquo; button in your editor. When the tactic finds a proof,
 two things will happen.</p>
 <ul>
 <li>
-<p>To current goal will be finished, allowing you to move on to the next branch of the proof. This is
+<p>The current goal will be finished, allowing you to move on to the next branch of the proof. This is
 convenient when you want to progress through the proof quickly and without any hassle.</p>
 </li>
 <li>
 <p>Tactician will issue a caching <em>tactic witness</em> of the form</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span>search <span style="color:#66d9ef">with</span> cache <span style="color:#f92672">(</span>t1<span style="color:#f92672">;</span> t2<span style="color:#f92672">;</span> <span style="color:#f92672">..;</span> tn<span style="color:#f92672">).</span>
-</span></span></code></pre></div><p>You can copy this witness, and replace the original invocation of <code>search</code> with it. The result will be
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span>synth <span style="color:#66d9ef">with</span> cache <span style="color:#f92672">(</span>t1<span style="color:#f92672">;</span> t2<span style="color:#f92672">;</span> <span style="color:#f92672">..;</span> tn<span style="color:#f92672">).</span>
+</span></span></code></pre></div><p>You can copy this witness, and replace the original invocation of <code>synth</code> with it. The result will be
 that the next time you execute this command, the system will first try to execute the provided witness.
 If this succeeds, the command will quickly terminate so that you do not have to wait for Tactician to
 prove goals time and time again while you navigate through an interactive document.</p>
@@ -270,8 +269,11 @@ to attempt a recovery of the witness.</p>
 </li>
 </ul>
 <h4 id="auxiliary-commands-and-usages">Auxiliary commands and usages</h4>
-<p>In addition to <code>Suggest</code> and <code>search</code>, we provide the following commands for more advanced use-cases.</p>
+<p>In addition to <code>Suggest</code> and <code>synth</code>, we provide the following commands for more advanced use-cases.</p>
 <ul>
+<li>
+<p><code>Debug Suggest</code> and <code>debug synth</code> are variations of the commands above that will output debugging information.</p>
+</li>
 <li>
 <p><code>tactician ignore tac</code> will execute the tactic <code>tac</code>, but while hiding it from Tacticians machine learning
 component. This can be useful when you use a tactic you know will confuse Tactician. One example is the unsafe
@@ -295,17 +297,17 @@ to define and prove some lemmas you do not want Tactician to know about. Another
 </span></span></code></pre></div><p>This will hide all the contents of <code>SecretLibrary</code> from Tactician.</p>
 </li>
 <li>
-<p>It is possible and sometimes useful to perform nested invocations of <code>search</code>. By default, Tactician will
-refrain from learning from its own commands, such as <code>search</code>. However, this is not the case when you use it
+<p>It is possible and sometimes useful to perform nested invocations of <code>synth</code>. By default, Tactician will
+refrain from learning from its own commands, such as <code>synth</code>. However, this is not the case when you use it
 as part of a tactic expression. An example is the expression</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span><span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> search<span style="color:#f92672">].</span>
-</span></span></code></pre></div><p>When you execute this tactic, the <code>search</code> command will be part of Ltac&rsquo;s backtracking behavior, as expected.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span><span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> synth<span style="color:#f92672">].</span>
+</span></span></code></pre></div><p>When you execute this tactic, the <code>synth</code> command will be part of Ltac&rsquo;s backtracking behavior, as expected.
 Additionally, Tactician will pick up the whole expression as a future way to prove a goal. As such, when you
-next execute <code>search</code>, Tactician may start to nest these invocations with backtracking behavior. To keep this
+next execute <code>synth</code>, Tactician may start to nest these invocations with backtracking behavior. To keep this
 under control, nested search is bound to a depth of one.</p>
 <p>If you execute the command above, but do not want Tactician to start doing nested searches, you might want to
 wrap it in <code>tactician ignore</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span>tactician ignore <span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> search<span style="color:#f92672">].</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span>tactician ignore <span style="color:#66d9ef">solve</span> <span style="color:#f92672">[</span><span style="color:#66d9ef">constructor</span><span style="color:#f92672">;</span> synth<span style="color:#f92672">].</span>
 </span></span></code></pre></div></li>
 </ul>
 </div>

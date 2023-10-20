@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Tactician">
   
-  <meta name="generator" content="Hugo 0.102.3" />
+  <meta name="generator" content="Hugo 0.119.0">
 
   
   
@@ -41,7 +41,6 @@
 <meta property="og:description" content="Tactician" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://coq-tactician.github.io/manual/" />
-
 
   
   
@@ -241,11 +240,12 @@ If you&rsquo;d like a more in-depth guide, see <a href="installation">installati
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>opam install coq-tactician
 </span></span><span style="display:flex;"><span>tactician enable <span style="color:#75715e"># Optional but recoomended, adds Tactician to your coqrc</span>
 </span></span><span style="display:flex;"><span>tactician inject <span style="color:#75715e"># Optional, instrument installation of Opam packages</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For Coq &lt; 8.17 only:</span>
 </span></span><span style="display:flex;"><span>opam install coq-tactician-stdlib <span style="color:#75715e"># Optional, recompiles standard library</span>
 </span></span></code></pre></div><h5 id="basic-usage">Basic Usage</h5>
 <p>If you have chosen to run <code>tactician enable</code> during installation, Tactician will be
 immediately ready to go.
-The two most important commands of Tactician are <code>Suggest</code> and <code>search</code>.
+The two most important commands of Tactician are <code>Suggest</code> and <code>synth</code>.
 Both should be used in proof mode. You can try them out on our <a href="/Example.v">example</a> file.
 A more comprehensive description of Tactician&rsquo;s commands can be found in <a href="usage">usage</a>.
 To instrument packages with Tactician support, see <a href="coq-packages">Coq packages</a>.</p>

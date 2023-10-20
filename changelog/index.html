@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Tactician">
   
-  <meta name="generator" content="Hugo 0.102.3" />
+  <meta name="generator" content="Hugo 0.119.0">
 
   
   
@@ -38,10 +38,9 @@
 
   
   <meta property="og:title" content="Changelog posts" />
-<meta property="og:description" content="Announcing Tactician version 1.0 beta1 We would like to announce Tactician 1.0 beta1, the first official release of Tactician. Tactician is a tactic learner and prover for the Coq Proof Assistant. The system will help users make tactical proof decisions while they retain control over the general proof strategy. To this end, Tactician will learn from previously written tactic scripts, and either gives the user suggestions about the next tactic to be executed or altogether takes over the burden of proof synthesis." />
+<meta property="og:description" content="Announcing Tactician version 1.0 beta2 After almost three years of development, we are happy to announce Tactician 1.0 beta2. It is available for all Coq versions between v8.12 and v8.18. Tactician is a proof synthesis system that uses data from existing theorems in order to help users write new proofs. It can adapt to, and learn from new developments on the fly. For details, see the website and the list of publications." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://coq-tactician.github.io/changelog/" /><meta property="article:section" content="" />
-
 
 
 
@@ -140,7 +139,51 @@
         <div class="p-5 shadow rounded content">
           <h1>Changelog posts</h1>
           <p></p>
-          <div class="mt-5"><h3 id="announcing-tactician-version-10-beta1">Announcing Tactician version 1.0 beta1</h3>
+          <div class="mt-5"><h3 id="announcing-tactician-version-10-beta2">Announcing Tactician version 1.0 beta2</h3>
+<p>After almost three years of development, we are happy to announce Tactician 1.0 beta2. It is available for all
+Coq versions between v8.12 and v8.18. Tactician is a proof
+synthesis system that uses data from existing theorems in order to help users write new proofs. It can adapt
+to, and learn from new developments on the fly. For details, see the <a href="https://coq-tactician.github.io">website</a>
+and the list of <a href="https://coq-tactician.github.io/publications">publications</a>.</p>
+<p>Most of the development time in the past three years went to bug fixes, stability improvements, performance
+improvements and other internal changes. No detailed changelog was kept, but we believe the usability has
+improved significantly. There have also been a number of important user-facing changes:</p>
+<ul>
+<li>
+<p>The <code>search</code> tactic has been renamed to <code>synth</code> to avoid confusion with Coq&rsquo;s internal <code>Search</code> command.
+(The <code>Suggest</code> command remains the same.)</p>
+</li>
+<li>
+<p>Starting from Coq v8.17, the standard library has been split from Coq&rsquo;s core, resulting in the packages
+<code>coq-core</code> and <code>coq-stdlib</code>. The <code>coq-tactician</code> package now depends only <code>coq-core</code>. This allows
+Tactician to instrument <code>coq-stdlib</code> while it is being installed in order to learn from it, obviating the
+need for the <code>coq-tactician-stdlib</code> package. (See the <a href="https://coq-tactician.github.io/manual/">manual</a> for
+further instructions.)</p>
+</li>
+<li>
+<p>In the past years, the landscape of available Coq editors has changed significantly. The support for the
+various editors is as follows:</p>
+<ul>
+<li>Coqide: Fully supported.</li>
+<li>Emacs with Proof General: Fully supported.</li>
+<li>Coq-lsp: Partially supported. Tactician can be loaded through <code>From Tactician Require Import Ltac1</code>,
+but support for injecting Tactician through launching VsCode with <code>tactician exec code</code> is unavailable.</li>
+<li>VsCoq Legacy: Supported. Support for launching VsCode through <code>tactician exec code</code> is available starting Coq
+v8.12.</li>
+<li>VsCoq 2.0: Currently incompatible with Tactician.</li>
+</ul>
+<p>If you encounter any issues with these editors, please open an
+<a href="https://github.com/coq-tactician/coq-tactician/issues">issue</a>.</p>
+</li>
+<li>
+<p>Tactician is now fully open source under the MIT license. As such, this is an invitation for other researchers
+to use the data available in Tactician to build their own proof synthesizer. If you have a great idea,
+don&rsquo;t hesitate to reach out for a potential collaboration.</p>
+</li>
+</ul>
+<p>Any feedback on this beta release is appreciated. Do not hesitate to open an
+<a href="https://github.com/coq-tactician/coq-tactician/issues">issue</a>.</p>
+<h3 id="announcing-tactician-version-10-beta1">Announcing Tactician version 1.0 beta1</h3>
 <p>We would like to announce Tactician 1.0 beta1, the first official release of Tactician.
 Tactician is a tactic learner and prover for the Coq Proof Assistant.
 The system will help users make tactical proof decisions while they retain control over the general proof
