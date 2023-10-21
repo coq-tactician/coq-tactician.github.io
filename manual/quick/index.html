@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us"><head>
   <meta charset="utf-8">
-  <title>Coq packages</title>
+  <title>Quick start</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -37,12 +37,11 @@
   
 
   
-  <meta property="og:title" content="Coq packages" />
-<meta property="og:description" content="Tactician has first-class support for packages installed through the Opam package manager. Below we explain how to install Coq packages in such a way that Tactician can learn from its contents. We also give recommendations on packaging your own development when you use Tactician in this development.
-Instrumenting Coq packages To instrument packages such that Tactician can learn from them during compilation/installation, you simply execute the following command:
-tactician inject After that, almost any package installed through opam install will be instrumented." />
+  <meta property="og:title" content="Quick start" />
+<meta property="og:description" content="This is a super-short guide for people with prior experience with Coq and Coq packages. If you&rsquo;d like a more in-depth guide, see installation.
+Installation opam install coq-tactician tactician enable # Optional but recoomended, adds Tactician to your coqrc tactician inject # Optional, instrument installation of Opam packages # For Coq &lt; 8.17 only: opam install coq-tactician-stdlib # Optional, recompiles standard library Basic Usage If you have chosen to run tactician enable during installation, Tactician will be immediately ready to go." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://coq-tactician.github.io/manual/coq-packages/" /><meta property="article:section" content="manual" />
+<meta property="og:url" content="https://coq-tactician.github.io/manual/quick/" /><meta property="article:section" content="manual" />
 
 
 
@@ -170,7 +169,7 @@ tactician inject After that, almost any package installed through opam install w
 
 
 <li data-nav-id="https://coq-tactician.github.io/manual/quick/" title="Quick start"
-  class="sidelist  ">
+  class="sidelist  active">
   <a href="https://coq-tactician.github.io/manual/quick/">Quick start</a>
   
   
@@ -221,7 +220,7 @@ tactician inject After that, almost any package installed through opam install w
 
 
 <li data-nav-id="https://coq-tactician.github.io/manual/coq-packages/" title="Coq packages"
-  class="sidelist  active">
+  class="sidelist  ">
   <a href="https://coq-tactician.github.io/manual/coq-packages/">Coq packages</a>
   
   
@@ -244,51 +243,23 @@ tactician inject After that, almost any package installed through opam install w
       </div>
       <div class="col-md-8">
         <div class="px-lg-5 px-4">
-          <h2 class="mb-4 font-weight-medium">Coq packages</h2>
+          <h2 class="mb-4 font-weight-medium">Quick start</h2>
           
-          <div class="content"><p>Tactician has first-class support for packages installed through the <a href="https://opam.ocaml.org/">Opam</a> package
-manager. Below we explain how to install Coq packages in such a way that Tactician can learn from its contents.
-We also give recommendations on packaging your own development when you use Tactician in this development.</p>
-<h4 id="instrumenting-coq-packages">Instrumenting Coq packages</h4>
-<p>To instrument packages such that Tactician can learn from them during compilation/installation, you simply
-execute the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tactician inject
-</span></span></code></pre></div><p>After that, almost any package installed through <code>opam install</code> will be instrumented. There are some exceptions,
-such as developments that come with their own standard library. For these developments special support can be
-built into Tactician. Currently, there is special support for these packages:</p>
-<ul>
-<li><a href="http://coq.io/opam/coq-hott.8.11.html">coq-hott</a></li>
-</ul>
-<p>If your favorite package cannot currently be instrumented, please open an
-<a href="https://github.com/coq-tactician/coq-tactician/issues">issue</a>.</p>
-<p>If at any point you want to remove Tactician instrumentation from the build process, you can run
-<code>tactician eject</code>. This command will also help you recompile your currently installed packages to remove
-Tactician support.</p>
-<p><strong>Note:</strong> On macOS, due to limitations of the operating system, some packages cannot be instrumented. Currently only coq-hott is known not to work.</p>
-<h4 id="packaging-developments-while-using-tactician">Packaging developments while using Tactician</h4>
-<p>When you work on a Coq development that is intended to be packaged with Opam, we recommend that you do <em>not</em>
-create a hard dependency on the <code>coq-tactician</code> package. This will create an unnecessary burden on your users,
-who might not want to use Tactician. For this reason, it is recommended that you enable Tactician in your
-day-to-day work by loading it through your <code>coqrc</code> file. The command <code>tactician enable</code> will help you with this.</p>
-<p>This does leave the question how users can compile Tactician&rsquo;s commands <em>not</em> having Tactician installed. To
-resolve this, your package can depend on <code>coq-tactician-dummy</code> (or you can just copy
-<a href="https://github.com/coq-tactician/coq-tactician-dummy/blob/master/theories/Ltac1Dummy.v">this</a> 12 line file
-into your development). You can load this package using</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span>From Tactician <span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> Ltac1Dummy<span style="color:#f92672">.</span>
-</span></span></code></pre></div><p>The dummy package contains trivial implementations of Tactician commands. In particular:</p>
-<ul>
-<li><code>synth</code> will generate an error. You should modify all instances of <code>synth</code> to include the generated
-witness of the form <code>synth with cache tac</code>. The dummy version will try to use the witness, but does not
-perform a new proof search when the witness fails.</li>
-<li>The tactic <code>tactician ignore tac</code> is simply a wrapper for <code>tac</code>.</li>
-<li>The option <code>Unset Tactician Record</code> will do nothing. However, it will generate a warning. If you want to
-ignore this warning, you can surround these commands as follows:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span><span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;-unknown-option&#34;</span><span style="color:#f92672">.</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">Unset</span> Tactician <span style="color:#f92672">Record</span><span style="color:#f92672">.</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;unknown-option&#34;</span><span style="color:#f92672">.</span>
-</span></span></code></pre></div></li>
-<li><code>Suggest</code> is not functional, and you should not keep this command in your development when you release it.</li>
-</ul>
+          <div class="content"><p>This is a super-short guide for people with prior experience with Coq and Coq packages.
+If you&rsquo;d like a more in-depth guide, see <a href="../installation">installation</a>.</p>
+<h5 id="installation">Installation</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>opam install coq-tactician
+</span></span><span style="display:flex;"><span>tactician enable <span style="color:#75715e"># Optional but recoomended, adds Tactician to your coqrc</span>
+</span></span><span style="display:flex;"><span>tactician inject <span style="color:#75715e"># Optional, instrument installation of Opam packages</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For Coq &lt; 8.17 only:</span>
+</span></span><span style="display:flex;"><span>opam install coq-tactician-stdlib <span style="color:#75715e"># Optional, recompiles standard library</span>
+</span></span></code></pre></div><h5 id="basic-usage">Basic Usage</h5>
+<p>If you have chosen to run <code>tactician enable</code> during installation, Tactician will be
+immediately ready to go.
+The two most important commands of Tactician are <code>Suggest</code> and <code>synth</code>.
+Both should be used in proof mode. You can try them out on our <a href="/Example.v">example</a> file.
+A more comprehensive description of Tactician&rsquo;s commands can be found in <a href="../usage">usage</a>.
+To instrument packages with Tactician support, see <a href="../coq-packages">Coq packages</a>.</p>
 </div>
           
           
