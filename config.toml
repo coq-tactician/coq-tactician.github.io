@@ -109,30 +109,31 @@ page = "/"
 ############## English navigation ###############
 
 # main menu
-[[Languages.en.menu.main]]
-name = "Home"
-url = "/"
-weight = 1
 
 [[Languages.en.menu.main]]
 name = "Manual"
 url = "/manual"
 weight = 2
 
+# [[Languages.en.menu.main]]
+# name = "API"
+# url = "api"
+# weight = 3
+
 [[Languages.en.menu.main]]
 name = "Publications"
 url = "/publications"
-weight = 3
+weight = 4
 
 [[Languages.en.menu.main]]
 name = "People"
 url = "/people"
-weight = 4
+weight = 5
 
 [[Languages.en.menu.main]]
 name = "Demo"
-url = "https://coq-tactician.github.io/demo.html"
-weight = 5
+url = "/demo.html"
+weight = 6
 
 # # footer menu
 # [[Languages.en.menu.footer]]
@@ -179,12 +180,12 @@ link = "changelog"
 [[params.landing]]
 style = "solid" # available style: solid, outline
 label = "Online Demo"
-link = "https://coq-tactician.github.io/demo.html"
+link = "/demo.html"
 
 [[params.landing]]
 style = "outline" # available style: solid, outline
 label = "Install now"
-link = "manual"
+link = "/manual/quick"
   
 # ############################# social site ########################
 # [[params.social]]
