@@ -112,13 +112,13 @@ page = "/"
 
 [[Languages.en.menu.main]]
 name = "Manual"
-url = "/manual"
+url = "/manual/quick"
 weight = 2
 
-# [[Languages.en.menu.main]]
-# name = "API"
-# url = "api"
-# weight = 3
+[[Languages.en.menu.main]]
+name = "API"
+url = "api/introduction"
+weight = 3
 
 [[Languages.en.menu.main]]
 name = "Publications"
