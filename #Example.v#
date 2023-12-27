@@ -1,4 +1,6 @@
 Require Import Utf8.
+From Tactician Require Import Ltac1.
+Set Tactician Neural Autocache.
 
 Inductive list :=
 | nil  : list
@@ -13,52 +15,28 @@ Fixpoint concat ls₁ ls₂ :=
   | x::ls₁' => x::(concat ls₁' ls₂)
   end where "ls₁ ++ ls₂" := (concat ls₁ ls₂).
 
-Lemma concat_nil_r : forall ls, ls ++ [] = ls.
+(* First we teach the automation something, simply by proving a lemma. *)
+Lemma concat_nil_r : forall ls, ls  ++ [] = ls.
 Proof.
-intros. induction ls.
+Graph Depth 0 Proof.
+intros. Show Proof.
+Graph Depth 0 Proof.
+rename ls into p.
+Graph Depth 1 Proof.
+Suggest.
+induction ls.
 - simpl. reflexivity.
-- simpl. f_equal. apply IHls.
+- simpl. f_equal. Suggest. apply IHls.
 Qed.
 
-Lemma concat_assoc : 
-  forall ls ls₂ ls₃, (ls ++ ls₂) ++ ls₃ = ls ++ (ls₂ ++ ls₃).
+(* The system has immediately learnt from this lemma, and is now ready to
+   help you prove the next one: *)
+Lemma concat_assoc : forall ls ls₂ ls₃, (ls ++ ls₂) ++ ls₃ = ls ++ (ls₂ ++ ls₃).
 Proof.
-search.
+Suggest.
+synth.
+(* Try copying in the caching tactic printed by Tactician on the right *)
 Qed.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 (* This is a more advanced example of how to teach the automation about custom
    Ltac definitions. *)
@@ -80,12 +58,12 @@ solve_nc_sublist.
 Qed.
 Lemma ex2 ls : 1::2::ls ++ [] = 1::2::ls.
 rewrite concat_nil_r. reflexivity.
-(* Note that 'search' can also find a proof by repoving concat_nil_r.
+(* Note that 'synth' can also find a proof by repoving concat_nil_r.
    However, we need the example of rewriting with concat_nil_r for the next
    lemma. *)
 Qed.
 
 Lemma dec2 ls₁ ls₂: nc_sublist ls₁ ls₂ ->
   nc_sublist (7::9::13::ls₁) (8::5::7::[] ++ 9::13::ls₂ ++ []).
-search.
+synth.
 Qed.

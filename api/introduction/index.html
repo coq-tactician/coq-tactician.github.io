@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us"><head>
   <meta charset="utf-8">
-  <title>Coq packages</title>
+  <title>API Introduction</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -37,12 +37,10 @@
   
 
   
-  <meta property="og:title" content="Coq packages" />
-<meta property="og:description" content="Tactician has first-class support for packages installed through the Opam package manager. Below we explain how to install Coq packages in such a way that Tactician can learn from its contents. We also give recommendations on packaging your own development when you use Tactician in this development.
-Instrumenting Coq packages To instrument packages such that Tactician can learn from them during compilation/installation, you simply execute the following command:
-tactician inject After that, almost any package installed through opam install will be instrumented." />
+  <meta property="og:title" content="API Introduction" />
+<meta property="og:description" content="Tactician&rsquo;s API provides external machine learning agents with Coq&rsquo;s internal knowledge-base of mathematics. It can extract large-scale datasets from a wide variety of Coq packages for the purpose of offline machine learning. Additionally, it allows agents to interact with Coq. Proving servers can be connected to Tactician&rsquo;s synth tactic and prove theorems for Coq users. Additionally, servers can do proof exploration through the Tactician Explore command. Examples of external proving agents include Graph2Tac &amp; Text2Tac." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://coq-tactician.github.io/manual/coq-packages/" /><meta property="article:section" content="manual" />
+<meta property="og:url" content="https://coq-tactician.github.io/api/introduction/" /><meta property="article:section" content="api" />
 
 
 
@@ -156,7 +154,7 @@ tactician inject After that, almost any package installed through opam install w
 
 
 <li data-nav-id="https://coq-tactician.github.io/manual/" title="Manual"
-  class="sidelist parent ">
+  class="sidelist  ">
   <a href="https://coq-tactician.github.io/manual/">Manual</a>
   
   
@@ -227,7 +225,7 @@ tactician inject After that, almost any package installed through opam install w
 
 
 <li data-nav-id="https://coq-tactician.github.io/manual/coq-packages/" title="Coq packages"
-  class="sidelist  active">
+  class="sidelist  ">
   <a href="https://coq-tactician.github.io/manual/coq-packages/">Coq packages</a>
   
   
@@ -260,7 +258,7 @@ tactician inject After that, almost any package installed through opam install w
 
 
 <li data-nav-id="https://coq-tactician.github.io/api/" title="API"
-  class="sidelist  ">
+  class="sidelist parent ">
   <a href="https://coq-tactician.github.io/api/">API</a>
   
   
@@ -280,7 +278,7 @@ tactician inject After that, almost any package installed through opam install w
 
 
 <li data-nav-id="https://coq-tactician.github.io/api/introduction/" title="API Introduction"
-  class="sidelist  ">
+  class="sidelist  active">
   <a href="https://coq-tactician.github.io/api/introduction/">API Introduction</a>
   
   
@@ -366,50 +364,75 @@ tactician inject After that, almost any package installed through opam install w
       </div>
       <div class="col-md-8">
         <div class="px-lg-5 px-4">
-          <h2 class="mb-4 font-weight-medium">Coq packages</h2>
+          <h2 class="mb-4 font-weight-medium">API Introduction</h2>
           
-          <div class="content"><p>Tactician has first-class support for packages installed through the <a href="https://opam.ocaml.org/">Opam</a> package
-manager. Below we explain how to install Coq packages in such a way that Tactician can learn from its contents.
-We also give recommendations on packaging your own development when you use Tactician in this development.</p>
-<h4 id="instrumenting-coq-packages">Instrumenting Coq packages</h4>
-<p>To instrument packages such that Tactician can learn from them during compilation/installation, you simply
-execute the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tactician inject
-</span></span></code></pre></div><p>After that, almost any package installed through <code>opam install</code> will be instrumented. There are some exceptions,
-such as developments that come with their own standard library. For these developments special support can be
-built into Tactician. Currently, there is special support for these packages:</p>
+          <div class="content"><img src="/images/web.png" alt="Web" width="100%"/>
+<p>Tactician&rsquo;s API provides external machine learning agents with Coq&rsquo;s internal
+knowledge-base of mathematics. It can extract large-scale datasets from a wide
+variety of Coq packages for the purpose of offline machine learning.
+Additionally, it allows agents to interact with Coq. Proving servers can be
+connected to Tactician&rsquo;s <code>synth</code> tactic and prove theorems for Coq users.
+Additionally, servers can do proof exploration through the <code>Tactician Explore</code>
+command. Examples of external proving agents include <a href="../graph2tac">Graph2Tac &amp; Text2Tac</a>.</p>
+<p>The data provided to agents includes definitions, theorems, proof terms and a
+machine-readable representation of tactical proofs. The data is provided both in
+Coq&rsquo;s standard text-based human-readable format and as a semantic graph. The
+semantic graph is a single interconnected object that includes the entire
+mathematical universe known to Coq (at a given moment in time). As such, it
+provides external agents with &ldquo;complete information&rdquo; of Coq&rsquo;s internal state,
+instead of &ldquo;incomplete information&rdquo;. The agent does not need to query Coq for
+information about theorems or definitions, because it has an always-up-to-date
+view.</p>
+<p>The graph is designed to represent the semantic meaning of a mathematical object
+as faithfully as possible, minimizing the amount of implicit knowledge needed to
+interpret the object. For example, when a definition <code>X</code> refers to another
+definition <code>Y</code>, such a dependency is encoded explicitly using an edge in the
+graph. No definition lookup table is need. We also shy away from using names or
+de Bruijn indices as variables. Instead, variables point directly to their
+binders, so that name lookup becomes a trivial operation. Such an encoding
+reduces alpha-equivalence between terms to the graph-theoretic notion of
+bisimilarity, and allows us to globally deduplicate any alpha-equivalent terms
+in the graph.</p>
+<p>A simple example of the semantic graph is shown below. An entire Coq document is
+converted into a single graph. Alpha-equivalent sub-terms, such as <code>2*</code> are
+globally shared. The graph includes all transitive objects referenced by
+the document, such as <code>nat</code>, <code>=</code>, <code>+</code> and <code>*</code> (shown with a truncated tree here).</p>
+<img src="/images/web-example.svg" alt="Web example" style="display:block; margin-left: auto; margin-right: auto" width="90%"/>
+<p>A zoomed-out view of the graph is visualized on the top of this page. This graph
+contains all information encoded in Coq&rsquo;s Prelude.</p>
+<p>Communication with agents happens through the <a href="https://capnproto.org">Cap&rsquo;n
+Proto</a> serialization format and remote procedure calling
+(RPC) protocol. It supports a wide variety of programming languages, including
+Python, OCaml, C++, Haskell, Rust and more. This serialization was chosen
+because it allows us to memory-map (<code>mmap</code>) large graph datasets, allowing fast
+random-access to graphs that may not fit into main memory. Furthermore, Cap&rsquo;n
+Proto&rsquo;s RPC protocol, based on the <a href="https://en.wikipedia.org/wiki/Distributed_object">distributed
+object-capability</a> model,
+allows us to export Coq&rsquo;s proof states to external agents. Agents can inspect
+the proof states, and execute tactics on them, allowing exploration of the proof
+search space in arbitrary order.</p>
+<h3 id="overview-of-the-platform">Overview of the platform</h3>
+<p>Tactician&rsquo;s API is meant to provide a bridge between the machine learning
+community and the proof engineering community. On the one hand, ML researchers
+can leverage the formal knowledge generated by proof engineers to build, train
+and evaluate agents. In return, these agents can be provided to proof engineers
+to assist them in synthesizing more formal knowledge. Agents can be integrated
+into the day-to-day workflow of proving and programming in Coq.</p>
+<p>Components include:</p>
 <ul>
-<li><a href="http://coq.io/opam/coq-hott.8.11.html">coq-hott</a></li>
-</ul>
-<p>If your favorite package cannot currently be instrumented, please open an
-<a href="https://github.com/coq-tactician/coq-tactician/issues">issue</a>.</p>
-<p>If at any point you want to remove Tactician instrumentation from the build process, you can run
-<code>tactician eject</code>. This command will also help you recompile your currently installed packages to remove
-Tactician support.</p>
-<p><strong>Note:</strong> On macOS, due to limitations of the operating system, some packages cannot be instrumented. Currently only coq-hott is known not to work.</p>
-<h4 id="packaging-developments-while-using-tactician">Packaging developments while using Tactician</h4>
-<p>When you work on a Coq development that is intended to be packaged with Opam, we recommend that you do <em>not</em>
-create a hard dependency on the <code>coq-tactician</code> package. This will create an unnecessary burden on your users,
-who might not want to use Tactician. For this reason, it is recommended that you enable Tactician in your
-day-to-day work by loading it through your <code>coqrc</code> file. The command <code>tactician enable</code> will help you with this.</p>
-<p>This does leave the question how users can compile Tactician&rsquo;s commands <em>not</em> having Tactician installed. To
-resolve this, your package can depend on <code>coq-tactician-dummy</code> (or you can just copy
-<a href="https://github.com/coq-tactician/coq-tactician-dummy/blob/master/theories/Ltac1Dummy.v">this</a> 12 line file
-into your development). You can load this package using</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span>From Tactician <span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> Ltac1Dummy<span style="color:#f92672">.</span>
-</span></span></code></pre></div><p>The dummy package contains trivial implementations of Tactician commands. In particular:</p>
-<ul>
-<li><code>synth</code> will generate an error. You should modify all instances of <code>synth</code> to include the generated
-witness of the form <code>synth with cache tac</code>. The dummy version will try to use the witness, but does not
-perform a new proof search when the witness fails.</li>
-<li>The tactic <code>tactician ignore tac</code> is simply a wrapper for <code>tac</code>.</li>
-<li>The option <code>Unset Tactician Record</code> will do nothing. However, it will generate a warning. If you want to
-ignore this warning, you can surround these commands as follows:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span><span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;-unknown-option&#34;</span><span style="color:#f92672">.</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">Unset</span> Tactician <span style="color:#f92672">Record</span><span style="color:#f92672">.</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;unknown-option&#34;</span><span style="color:#f92672">.</span>
-</span></span></code></pre></div></li>
-<li><code>Suggest</code> is not functional, and you should not keep this command in your development when you release it.</li>
+<li><strong><a href="../graph2tac">Graph2Tac &amp; Text2Tac</a></strong>: Pre-trained models that can make tactic predictions and integrate with Tactician&rsquo;s <code>synth</code> command. The first model uses the graph-based representation while the second model uses human-readable text.</li>
+<li><strong><a href="../datasets">Datasets</a></strong>: Pre-made, large-scale datasets of formal
+knowledge extracted from a variety of Coq developments. Interactively explore
+the dataset <a href="http://grid01.ciirc.cvut.cz:8080/">here</a>. The dataset includes <a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init">hierarchies</a> of modules, <a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/context">global context</a> information, <a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36">definitions</a>, <a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36/proof">tactical proofs</a> and tactic <a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36/proof/step/4/outcome/0">proof transformations</a>.</li>
+<li><strong><a href="../commands">Coq Commands</a></strong>: Outlines the commands added to Tactician by
+the package <code>coq-tactician-api</code> for the purpose of interacting with external
+agents.</li>
+<li><strong><a href="../pytactician">PyTactician</a></strong>: A Python library build on top of Cap&rsquo;n
+Proto to facilitate reading the dataset and interface with Coq.</li>
+<li><strong><a href="https://github.com/coq-tactician/benchmark-system">Benchmarking</a></strong>: Tools
+to evaluate the proving strength of agents on arbitrary Opam packages.
+Benchmarks can be run on a laptop, a high-powered server and even massively
+parallelized on a High Perfomance Computing (HPC) cluster.</li>
 </ul>
 </div>
           

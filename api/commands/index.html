@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us"><head>
   <meta charset="utf-8">
-  <title>Coq packages</title>
+  <title>Coq Commands</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -37,12 +37,13 @@
   
 
   
-  <meta property="og:title" content="Coq packages" />
-<meta property="og:description" content="Tactician has first-class support for packages installed through the Opam package manager. Below we explain how to install Coq packages in such a way that Tactician can learn from its contents. We also give recommendations on packaging your own development when you use Tactician in this development.
-Instrumenting Coq packages To instrument packages such that Tactician can learn from them during compilation/installation, you simply execute the following command:
-tactician inject After that, almost any package installed through opam install will be instrumented." />
+  <meta property="og:title" content="Coq Commands" />
+<meta property="og:description" content="The package coq-tactician-api makes some commands available in addition to the usual commands listed in the manual. You should install this package when you wish to build your own external agent. (Both Graph2Tac and Text2Tac depend on this package.)
+Graph Visualizations These commands will create a graph of some object, and write it to graph.pdf (if graphviz is available).
+The following commands are always available:
+[Shared] Graph [Depth &lt;n&gt;] Ident identifier." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://coq-tactician.github.io/manual/coq-packages/" /><meta property="article:section" content="manual" />
+<meta property="og:url" content="https://coq-tactician.github.io/api/commands/" /><meta property="article:section" content="api" />
 
 
 
@@ -156,7 +157,7 @@ tactician inject After that, almost any package installed through opam install w
 
 
 <li data-nav-id="https://coq-tactician.github.io/manual/" title="Manual"
-  class="sidelist parent ">
+  class="sidelist  ">
   <a href="https://coq-tactician.github.io/manual/">Manual</a>
   
   
@@ -227,7 +228,7 @@ tactician inject After that, almost any package installed through opam install w
 
 
 <li data-nav-id="https://coq-tactician.github.io/manual/coq-packages/" title="Coq packages"
-  class="sidelist  active">
+  class="sidelist  ">
   <a href="https://coq-tactician.github.io/manual/coq-packages/">Coq packages</a>
   
   
@@ -260,7 +261,7 @@ tactician inject After that, almost any package installed through opam install w
 
 
 <li data-nav-id="https://coq-tactician.github.io/api/" title="API"
-  class="sidelist  ">
+  class="sidelist parent ">
   <a href="https://coq-tactician.github.io/api/">API</a>
   
   
@@ -314,7 +315,7 @@ tactician inject After that, almost any package installed through opam install w
 
 
 <li data-nav-id="https://coq-tactician.github.io/api/commands/" title="Coq Commands"
-  class="sidelist  ">
+  class="sidelist  active">
   <a href="https://coq-tactician.github.io/api/commands/">Coq Commands</a>
   
   
@@ -366,51 +367,74 @@ tactician inject After that, almost any package installed through opam install w
       </div>
       <div class="col-md-8">
         <div class="px-lg-5 px-4">
-          <h2 class="mb-4 font-weight-medium">Coq packages</h2>
+          <h2 class="mb-4 font-weight-medium">Coq Commands</h2>
           
-          <div class="content"><p>Tactician has first-class support for packages installed through the <a href="https://opam.ocaml.org/">Opam</a> package
-manager. Below we explain how to install Coq packages in such a way that Tactician can learn from its contents.
-We also give recommendations on packaging your own development when you use Tactician in this development.</p>
-<h4 id="instrumenting-coq-packages">Instrumenting Coq packages</h4>
-<p>To instrument packages such that Tactician can learn from them during compilation/installation, you simply
-execute the following command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tactician inject
-</span></span></code></pre></div><p>After that, almost any package installed through <code>opam install</code> will be instrumented. There are some exceptions,
-such as developments that come with their own standard library. For these developments special support can be
-built into Tactician. Currently, there is special support for these packages:</p>
+          <div class="content"><p>The package <code>coq-tactician-api</code> makes some commands available in addition to the
+usual commands listed in the <a href="../../manual/usage">manual</a>. You should install
+this package when you wish to build your own external agent. (Both Graph2Tac and
+Text2Tac depend on this package.)</p>
+<h3 id="graph-visualizations">Graph Visualizations</h3>
+<p>These commands will create a graph of some object, and write it to <code>graph.pdf</code>
+(if <code>graphviz</code> is available).</p>
+<p>The following commands are always available:</p>
+<pre tabindex="0"><code>[Shared] Graph [Depth &lt;n&gt;] Ident identifier.
+[Shared] Graph [Depth &lt;n&gt;] Term term.
+</code></pre><p>The normal commands print a fully transitive graph. Adding <code>Depth i</code> limits the
+traversal to visiting at most <code>i</code> nested definitions.</p>
+<p>Additionally, in proof mode, these commands are available:</p>
+<pre tabindex="0"><code>[Shared] Graph [Depth &lt;n&gt;] Proof.
+</code></pre><p>Options that modify the graphs generated by the commands above are</p>
+<pre tabindex="0"><code>[Set | Unset] Tactician Neural Visualize Ordered.
+[Set | Unset] Tactician Neural Visualize Labels.
+[Set | Unset] Tactician Neural Visualize Hashes.
+</code></pre><h3 id="interaction-with-synth">Interaction with <code>synth</code></h3>
+<p>In order to connect Tactician&rsquo;s <code>synth</code> tactic to a external tactic prediction
+server like the dummy <code>pytact-server</code> described provided by <a href="../pytactician">PyTactician</a>, the plugin makes a number
+of commands and settings available in Coq. In order to load the plugin, Coq
+needs to be started appropriately. This can be done by prefixing every
+invocation of a command that uses Coq, like <code>coqc</code>, <code>coqide</code>, a <code>make</code> command
+or an editor like <code>emacs</code> with <code>tactician exec</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tactician exec -- coqc ...
+</span></span><span style="display:flex;"><span>tactician exec -- coqide ...
+</span></span><span style="display:flex;"><span>tactician exec -- make ...
+</span></span><span style="display:flex;"><span>tactician exec -- dune build ...
+</span></span><span style="display:flex;"><span>tactician exec -- emacs ...
+</span></span></code></pre></div><p>To make the <code>synth</code> command available, your Coq file will have to start with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span>From Tactician <span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> Ltac1<span style="color:#f92672">.</span>
+</span></span></code></pre></div><p>The following settings govern the data that Coq will send to the server:</p>
 <ul>
-<li><a href="http://coq.io/opam/coq-hott.8.11.html">coq-hott</a></li>
+<li><code>Set Tactician Neural Textmode</code> determines wether Coq is communicating with a graph-based server or a text-based server (graph-based by default).</li>
+<li><code>Set Tactician Neural Metadata</code> adds text-based metadata to when communicating in graph-mode, such as
+hypothesis names, textual representation of proof states and textual representations of definition.
+This will slow down the communication protocol, and should only be enabled for debugging, or when otherwise needed.</li>
 </ul>
-<p>If your favorite package cannot currently be instrumented, please open an
-<a href="https://github.com/coq-tactician/coq-tactician/issues">issue</a>.</p>
-<p>If at any point you want to remove Tactician instrumentation from the build process, you can run
-<code>tactician eject</code>. This command will also help you recompile your currently installed packages to remove
-Tactician support.</p>
-<p><strong>Note:</strong> On macOS, due to limitations of the operating system, some packages cannot be instrumented. Currently only coq-hott is known not to work.</p>
-<h4 id="packaging-developments-while-using-tactician">Packaging developments while using Tactician</h4>
-<p>When you work on a Coq development that is intended to be packaged with Opam, we recommend that you do <em>not</em>
-create a hard dependency on the <code>coq-tactician</code> package. This will create an unnecessary burden on your users,
-who might not want to use Tactician. For this reason, it is recommended that you enable Tactician in your
-day-to-day work by loading it through your <code>coqrc</code> file. The command <code>tactician enable</code> will help you with this.</p>
-<p>This does leave the question how users can compile Tactician&rsquo;s commands <em>not</em> having Tactician installed. To
-resolve this, your package can depend on <code>coq-tactician-dummy</code> (or you can just copy
-<a href="https://github.com/coq-tactician/coq-tactician-dummy/blob/master/theories/Ltac1Dummy.v">this</a> 12 line file
-into your development). You can load this package using</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span>From Tactician <span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> Ltac1Dummy<span style="color:#f92672">.</span>
-</span></span></code></pre></div><p>The dummy package contains trivial implementations of Tactician commands. In particular:</p>
+<p>To let Coq take care of starting and stopping the server, use the command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span><span style="color:#f92672">Set</span> Tactician Neural Executable <span style="color:#e6db74">&#34;external-server-executable --argument1 --argument2&#34;</span><span style="color:#f92672">.</span>
+</span></span></code></pre></div><p>If you have a prediction server already running somewhere over TCP, you can make Coq connect to it using</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span><span style="color:#f92672">Set</span> Tactician Neural Server <span style="color:#e6db74">&#34;&lt;address&gt;:&lt;port&gt;&#34;</span><span style="color:#f92672">.</span>
+</span></span></code></pre></div><p>At this point, you have the following commands available which will interact with the server:</p>
 <ul>
-<li><code>synth</code> will generate an error. You should modify all instances of <code>synth</code> to include the generated
-witness of the form <code>synth with cache tac</code>. The dummy version will try to use the witness, but does not
-perform a new proof search when the witness fails.</li>
-<li>The tactic <code>tactician ignore tac</code> is simply a wrapper for <code>tac</code>.</li>
-<li>The option <code>Unset Tactician Record</code> will do nothing. However, it will generate a warning. If you want to
-ignore this warning, you can surround these commands as follows:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span><span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;-unknown-option&#34;</span><span style="color:#f92672">.</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">Unset</span> Tactician <span style="color:#f92672">Record</span><span style="color:#f92672">.</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">Set</span> Warnings <span style="color:#e6db74">&#34;unknown-option&#34;</span><span style="color:#f92672">.</span>
-</span></span></code></pre></div></li>
-<li><code>Suggest</code> is not functional, and you should not keep this command in your development when you release it.</li>
+<li><code>Tactician Neural Alignment</code> will ask the which tactics and definitions currently in scope are unknown to it.
+This is meant as a sanity check.</li>
+<li><code>Suggest</code> and <code>Debug Suggest</code> will ask the server for predictions for the current proof state.</li>
+<li><code>synth</code> and <code>debug synth</code> will perform a proof search by repeatedly asking the server for predictions.</li>
+<li><code>Tactician Neural Cache</code> will preemptively send a lot of required data to the prediction server and keeps that
+information cached. This will make the commands above run much faster. This command can be issued multiple times
+in a document, creating multiple nested caches.</li>
+<li><code>Set Tactician Autocache</code> will automatically execute <code>Tactician Neural Cache</code> on each command. This is an
+experimental option, and there may be some overhead associated with this.</li>
 </ul>
+<h3 id="client-based-proof-exploration">Client-based proof exploration</h3>
+<p>Finally, the command <code>Tactician Explore.</code> will initiate a proof exploration
+session. An example of this is available in
+<a href="https://github.com/coq-tactician/coq-tactician-api/blob/coq8.11/pytact/tests/TestReinforceStdin.v">TestReinforceStdin.v</a>.
+To do this, you need to have a python client running. An example is available in
+the <code>pytact-prover</code> executable. To see how it works, run <code>pytact-prover --pdfsequence --pdfname test</code> This will execute a dummy proof through the
+proof exploration interface. Visualizations of each proof state are available in
+<code>test&lt;n&gt;.pdf</code>. optionally <code>--file</code> option to point to a source Coq <code>.v</code> file.
+Also with <code>--interactive</code> option the interactive shell appears where you can
+manually interact with the environment. Whenever a tactic is executed, the
+resulting proof state if visualized in the file <code>python_graph.pdf</code>.</p>
 </div>
           
           

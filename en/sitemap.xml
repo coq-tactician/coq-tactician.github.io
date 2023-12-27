@@ -12,11 +12,21 @@
   </url><url>
     <loc>https://coq-tactician.github.io/api/</loc>
   </url><url>
+    <loc>https://coq-tactician.github.io/api/introduction/</loc>
+  </url><url>
     <loc>https://coq-tactician.github.io/manual/installation/</loc>
+  </url><url>
+    <loc>https://coq-tactician.github.io/api/graph2tac/</loc>
   </url><url>
     <loc>https://coq-tactician.github.io/manual/usage/</loc>
   </url><url>
     <loc>https://coq-tactician.github.io/manual/coq-packages/</loc>
+  </url><url>
+    <loc>https://coq-tactician.github.io/api/commands/</loc>
+  </url><url>
+    <loc>https://coq-tactician.github.io/api/pytactician/</loc>
+  </url><url>
+    <loc>https://coq-tactician.github.io/api/datasets/</loc>
   </url><url>
     <loc>https://coq-tactician.github.io/faq/</loc>
   </url><url>
