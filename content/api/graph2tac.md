@@ -168,7 +168,7 @@ Proof.
    That is too much. But Graph2Tac can do the inductions separately.
    Text2Tac cannot. *)
 induction n.
-- debug synth.
+- synth.
 - synth.
 Qed.
 ```
