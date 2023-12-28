@@ -131,14 +131,14 @@ with the agent. After a cache point, only new items in the global context need
 to be synchronized. This greatly speeds up initialization of a prediction.
 Creating a cache point is done using
 
-```bash
+```
 Tactician Neural Cache.
 ```
 
 Alternatively, you can automatically create new cache points after every new Coq
 command using the option
 
-```bash
+```
 Set Tactician Autocache.
 ```
 

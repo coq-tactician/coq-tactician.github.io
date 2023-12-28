@@ -44,7 +44,7 @@ needs to be started appropriately. This can be done by prefixing every
 invocation of a command that uses Coq, like `coqc`, `coqide`, a `make` command
 or an editor like `emacs` with `tactician exec`:
 
-```bash
+```
 tactician exec -- coqc ...
 tactician exec -- coqide ...
 tactician exec -- make ...
@@ -54,7 +54,7 @@ tactician exec -- emacs ...
 
 To make the `synth` command available, your Coq file will have to start with
 
-```coq
+```
 From Tactician Require Import Ltac1.
 ```
 
@@ -65,11 +65,11 @@ The following settings govern the data that Coq will send to the server:
   This will slow down the communication protocol, and should only be enabled for debugging, or when otherwise needed.
 
 To let Coq take care of starting and stopping the server, use the command
-```coq
+```
 Set Tactician Neural Executable "external-server-executable --argument1 --argument2".
 ```
 If you have a prediction server already running somewhere over TCP, you can make Coq connect to it using
-```coq
+```
 Set Tactician Neural Server "<address>:<port>".
 ```
 At this point, you have the following commands available which will interact with the server:
