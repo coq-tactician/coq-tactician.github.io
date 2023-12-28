@@ -394,14 +394,14 @@ of commands and settings available in Coq. In order to load the plugin, Coq
 needs to be started appropriately. This can be done by prefixing every
 invocation of a command that uses Coq, like <code>coqc</code>, <code>coqide</code>, a <code>make</code> command
 or an editor like <code>emacs</code> with <code>tactician exec</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tactician exec -- coqc ...
-</span></span><span style="display:flex;"><span>tactician exec -- coqide ...
-</span></span><span style="display:flex;"><span>tactician exec -- make ...
-</span></span><span style="display:flex;"><span>tactician exec -- dune build ...
-</span></span><span style="display:flex;"><span>tactician exec -- emacs ...
-</span></span></code></pre></div><p>To make the <code>synth</code> command available, your Coq file will have to start with</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span>From Tactician <span style="color:#f92672">Require</span> <span style="color:#f92672">Import</span> Ltac1<span style="color:#f92672">.</span>
-</span></span></code></pre></div><p>The following settings govern the data that Coq will send to the server:</p>
+<pre tabindex="0"><code>tactician exec -- coqc ...
+tactician exec -- coqide ...
+tactician exec -- make ...
+tactician exec -- dune build ...
+tactician exec -- emacs ...
+</code></pre><p>To make the <code>synth</code> command available, your Coq file will have to start with</p>
+<pre tabindex="0"><code>From Tactician Require Import Ltac1.
+</code></pre><p>The following settings govern the data that Coq will send to the server:</p>
 <ul>
 <li><code>Set Tactician Neural Textmode</code> determines wether Coq is communicating with a graph-based server or a text-based server (graph-based by default).</li>
 <li><code>Set Tactician Neural Metadata</code> adds text-based metadata to when communicating in graph-mode, such as
@@ -409,10 +409,10 @@ hypothesis names, textual representation of proof states and textual representat
 This will slow down the communication protocol, and should only be enabled for debugging, or when otherwise needed.</li>
 </ul>
 <p>To let Coq take care of starting and stopping the server, use the command</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span><span style="color:#f92672">Set</span> Tactician Neural Executable <span style="color:#e6db74">&#34;external-server-executable --argument1 --argument2&#34;</span><span style="color:#f92672">.</span>
-</span></span></code></pre></div><p>If you have a prediction server already running somewhere over TCP, you can make Coq connect to it using</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-coq" data-lang="coq"><span style="display:flex;"><span><span style="color:#f92672">Set</span> Tactician Neural Server <span style="color:#e6db74">&#34;&lt;address&gt;:&lt;port&gt;&#34;</span><span style="color:#f92672">.</span>
-</span></span></code></pre></div><p>At this point, you have the following commands available which will interact with the server:</p>
+<pre tabindex="0"><code>Set Tactician Neural Executable &#34;external-server-executable --argument1 --argument2&#34;.
+</code></pre><p>If you have a prediction server already running somewhere over TCP, you can make Coq connect to it using</p>
+<pre tabindex="0"><code>Set Tactician Neural Server &#34;&lt;address&gt;:&lt;port&gt;&#34;.
+</code></pre><p>At this point, you have the following commands available which will interact with the server:</p>
 <ul>
 <li><code>Tactician Neural Alignment</code> will ask the which tactics and definitions currently in scope are unknown to it.
 This is meant as a sanity check.</li>
