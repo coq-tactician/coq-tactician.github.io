@@ -32,7 +32,7 @@ model:
   tactics.
   + Graph2Tac, takes a more structured approach in generating tactics. It first
   chooses a "base" tactic, without any arguments, from a pre-defined set. For
-  example, `apply _`. Then, it predicts an argument each "hole" in the tactic.
+  example, `apply _`. Then, it predicts an argument for each "hole" in the tactic.
   Arguments are pointers into the knowledge graph given to the model. Therefore,
   arguments are always valid objects. A downside is that Graph2Tac is unable to
   synthesize arbitrary terms as arguments. It is also incapable of leveraging
