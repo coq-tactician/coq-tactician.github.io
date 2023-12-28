@@ -393,7 +393,7 @@ tactics and lemmas currently available in Coq, it is forced to &ldquo;hallucinat
 tactics.</li>
 <li>Graph2Tac, takes a more structured approach in generating tactics. It first
 chooses a &ldquo;base&rdquo; tactic, without any arguments, from a pre-defined set. For
-example, <code>apply _</code>. Then, it predicts an argument each &ldquo;hole&rdquo; in the tactic.
+example, <code>apply _</code>. Then, it predicts an argument for each &ldquo;hole&rdquo; in the tactic.
 Arguments are pointers into the knowledge graph given to the model. Therefore,
 arguments are always valid objects. A downside is that Graph2Tac is unable to
 synthesize arbitrary terms as arguments. It is also incapable of leveraging
