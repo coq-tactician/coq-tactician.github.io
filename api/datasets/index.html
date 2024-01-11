@@ -38,9 +38,8 @@
 
   
   <meta property="og:title" content="Datasets" />
-<meta property="og:description" content="Datasets are published on Zenodo:
-Data for API v15 on Coq v8.11 Interactively explore the dataset here. The dataset includes hierarchies of modules, global context information, definitions, tactical proofs and tactic proof transformations.
-The data is encoded using the Cap&rsquo;n Proto serialization protocol, allowing for fast random access to the graph and metadata from many programming languages. The (latest) schema file can be found in graph_api.capnp. For each Coq compilation unit X, the dataset includes the original X." />
+<meta property="og:description" content="Online Data Explorer You can explore and visualize the latest dataset that has been extracted from Coq online. The visualization should give you some intuition about what kind of data is available and how it is encoded. If this data is interesting to you, you can find download and usage instructions below.
+You can find the main entry-point for the visualization here. From there, you can explore the entire dataset. Examples of objects include:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://coq-tactician.github.io/api/datasets/" /><meta property="article:section" content="api" />
 
@@ -368,49 +367,70 @@ The data is encoded using the Cap&rsquo;n Proto serialization protocol, allowing
         <div class="px-lg-5 px-4">
           <h2 class="mb-4 font-weight-medium">Datasets</h2>
           
-          <div class="content"><p>Datasets are published on Zenodo:</p>
+          <div class="content"><h4 id="online-data-explorer">Online Data Explorer</h4>
+<p>You can explore and visualize the latest dataset that has been extracted from
+Coq online. The visualization should give you some intuition about what kind of
+data is available and how it is encoded. If this data is interesting to you, you
+can find download and usage instructions below.</p>
+<img src="/images/visualization_example.svg" alt="Visualization Example" style="float:right" width="40%">
+<p>You can find the main entry-point for the visualization <a href="http://grid01.ciirc.cvut.cz:8080/">here</a>.
+From there, you can explore the entire dataset. Examples of objects include:</p>
+<ul>
+<li><a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init">Module hierarchies</a> showing dependencies between compilation units</li>
+<li><a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/context">Global contexts</a> of a compilation units</li>
+<li><a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36">Individual definitions</a> within a global context</li>
+<li><a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36/proof">Tactical proofs</a> of theorems</li>
+<li><a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36/proof/step/4/outcome/0">Individual Proof transformations</a> of tactical proofs</li>
+</ul>
+<h4 id="downloads">Downloads</h4>
+<p>Datasets are published on Zenodo:</p>
 <ul>
 <li><a href="https://zenodo.org/records/10028721">Data for API v15 on Coq v8.11</a></li>
 </ul>
-<p>Interactively explore
-the dataset <a href="http://grid01.ciirc.cvut.cz:8080/">here</a>. The dataset includes <a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init">hierarchies</a> of modules, <a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/context">global context</a> information, <a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36">definitions</a>, <a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36/proof">tactical proofs</a> and tactic <a href="http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36/proof/step/4/outcome/0">proof transformations</a>.</p>
+<h4 id="accessing-the-data">Accessing the data</h4>
 <p>The data is encoded using the <a href="https://capnproto.org">Cap&rsquo;n Proto serialization protocol</a>, allowing
 for fast random access to the graph and metadata from many programming
-languages. The (latest) schema file can be found in
-<a href="https://github.com/coq-tactician/coq-tactician-api/blob/coq8.11/graph_api.capnp">graph_api.capnp</a>.
-For each Coq compilation unit <code>X</code>, the dataset includes the original <code>X.v</code> source file.
-Alongside that file is a <code>X.bin</code> file with Cap&rsquo;n Proto structure containing the
-data extracted during the compilation of <code>X</code>.</p>
-<p>For Python, a library called <a href="../pytactician">PyTactician</a> is provided that allows for easy
-and efficient access to the data. It includes software to visualize the dataset,
-a sanity checker for the dataset, an example prediction server that interfaces
-with Coq, an Oracle prediction server and an example proof exploration client.
-This library is a good starting point to explore the dataset.</p>
-<p>The data in this archive is represented as a <a href="https://docs.kernel.org/filesystems/squashfs.html">SquashFS</a> image <code>dataset.squ</code>.
-If you are using PyTactician, you can load the dataset by pointing
-directly to this image. This will automatically mount the image in directory
-<code>dataset/</code>. For example:</p>
+languages. For Python, a library called <a href="../pytactician">PyTactician</a> is provided that allows
+for easy and efficient access to the data. It includes software to visualize the
+dataset, a sanity checker for the dataset, an example prediction server that
+interfaces with Coq, an Oracle prediction server and an example proof
+exploration client. This library is a good starting point to explore the
+dataset. If you are looking to use another language to access the data, your
+starting point would be the <a href="https://github.com/coq-tactician/coq-tactician-api/blob/coq8.11/graph_api.capnp">graph_api.capnp schema
+file</a>.</p>
+<p>The data in the archive is represented as a <a href="https://docs.kernel.org/filesystems/squashfs.html">SquashFS</a> image <code>dataset.squ</code>.
+In order to access the data, you can either mount it or decompress it. Mounting
+is preferred on machines with limited memory. To mount, you need to install
+<a href="https://github.com/vasi/squashfuse">squashfuse</a> through your favorite package manager.</p>
+<p><strong>Note for MacOS users:</strong> Squashfuse is not available on MacOS. You can instead
+install <a href="https://formulae.brew.sh/formula/squashfs">squashfs</a> from Brew and decompress the dataset using the
+<code>unsquashfs</code> instructions below.</p>
+<p>Once squashfuse is installed, if you are using <a href="../pytactician">PyTactician</a>, you can load the
+dataset by pointing directly to this image. This will automatically mount the
+image in directory <code>dataset/</code>. For example:</p>
 <pre><code>pytact-check dataset.squ
 pytact-visualize dataset.squ
 </code></pre>
-<p>In order to make this work, <a href="https://github.com/vasi/squashfuse">squashfuse</a> needs to be installed through your
-favorite package manager. If you prefer to mount manually, or if you are not
-using the PyTactician library, you can mount the image using</p>
+<p>If you prefer to mount manually, or if you are not using the PyTactician
+library, you can mount the image using</p>
 <pre><code>squashfuse dataset.squ dataset/
 pytact-check dataset/
 pytact-visualize dataset/
 </code></pre>
-<p>If you have root access, you can mount the image more efficiently through</p>
-<pre><code>mount dataset.squ dataset/
-</code></pre>
-<p>Finally, you can also unpack the image without mounting it. However, on systems
-with limited memory or slow hard-disks this will lead to performance
-degradations while accessing the dataset. Experiments show that due to the high
-decompression speed of the image&rsquo;s LZ4 compression algorithm, mounting is almost
-always preferrable to unpacking. Nevertheless, if you wish to unpack, you can
-run:</p>
+<p>Finally, you can also unpack the image without mounting it (this is the only
+option for MacOS). On systems with limited memory or slow hard-disks this will
+lead to some performance degradations while accessing the dataset. If you wish
+to unpack, you can run:</p>
 <pre><code>unsquashfs -dest dataset/ dataset.squ
 </code></pre>
+<h4 id="introspecting-the-dataset-with-pytactician">Introspecting the dataset with PyTactician</h4>
+<p>You can use <a href="../pytactician">PyTactician</a> as a library to write scripts that extract
+information from the dataset. To get started, you can take a look at some simple
+<a href="https://coq-tactician.github.io/api/pytactician-pdoc/pytact/scripts.html">example scripts</a>. Documentation of the API is also <a href="https://coq-tactician.github.io/api/pytactician-pdoc/pytact/data_reader.html">available</a>.</p>
+<h4 id="raw-data-inspection">Raw data inspection</h4>
+<p>For each Coq compilation unit <code>X</code>, the dataset includes the original <code>X.v</code> source file.
+Alongside that file is a <code>X.bin</code> file with Cap&rsquo;n Proto structure containing the
+data extracted during the compilation of <code>X</code>.</p>
 <p>If you wish to inspect the raw data in the dataset manually, you can use <a href="https://capnproto.org/capnp-tool.html">capnp
 convert</a> to decode an individual file in the dataset to JSON as follows:</p>
 <pre><code>cat dataset/coq-tactician-stdlib.8.11.dev/theories/Init/Logic.bin | \

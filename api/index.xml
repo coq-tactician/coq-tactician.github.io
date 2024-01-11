@@ -52,9 +52,8 @@ Installation Binary wheels are provided for Linux and MacOS (on PyPI). On those 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://coq-tactician.github.io/api/datasets/</guid>
-      <description>Datasets are published on Zenodo:
-Data for API v15 on Coq v8.11 Interactively explore the dataset here. The dataset includes hierarchies of modules, global context information, definitions, tactical proofs and tactic proof transformations.
-The data is encoded using the Cap&amp;rsquo;n Proto serialization protocol, allowing for fast random access to the graph and metadata from many programming languages. The (latest) schema file can be found in graph_api.capnp. For each Coq compilation unit X, the dataset includes the original X.</description>
+      <description>Online Data Explorer You can explore and visualize the latest dataset that has been extracted from Coq online. The visualization should give you some intuition about what kind of data is available and how it is encoded. If this data is interesting to you, you can find download and usage instructions below.
+You can find the main entry-point for the visualization here. From there, you can explore the entire dataset. Examples of objects include:</description>
     </item>
     
   </channel>
