@@ -64,8 +64,8 @@ Graph2Tac is compatible with Python 3.9-3.11, while Text2Tac is compatible with
 Python 3.9-3.10. Install one (or both) of the agents using:
 
 ```bash
-pip install graph2tac==1.0
-pip install text2tac==1.0
+pip install graph2tac==1.0.4
+pip install text2tac==1.0.1
 ```
 
 Make sure that whenever you start Coq, the virtualenv where you made the
