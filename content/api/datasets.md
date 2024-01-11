@@ -67,6 +67,7 @@ library, you can mount the image using
     squashfuse dataset.squ dataset/
     pytact-check dataset/
     pytact-visualize dataset/
+    umount dataset/ # Unmount the dataset, optional
 
 Finally, you can also unpack the image without mounting it (this is the only
 option for MacOS). On systems with limited memory or slow hard-disks this will
