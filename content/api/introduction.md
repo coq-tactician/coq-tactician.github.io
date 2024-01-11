@@ -44,7 +44,9 @@ the document, such as `nat`, `=`, `+` and `*` (shown with a truncated tree here)
 <img src="/images/web-example.svg" alt="Web example" style="display:block; margin-left: auto; margin-right: auto" width="90%"/>
 
 A zoomed-out view of the graph is visualized on the top of this page. This graph
-contains all information encoded in Coq's Prelude.
+contains all information encoded in Coq's Prelude. See the
+[paper](https://arxiv.org/abs/2401.02950) for details on the construction of the
+graph.
 
 Communication with agents happens through the [Cap'n
 Proto](https://capnproto.org) serialization format and remote procedure calling

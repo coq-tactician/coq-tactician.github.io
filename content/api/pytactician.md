@@ -26,6 +26,9 @@ by running `pip install .` from the root of the repository.
 PyTactician provides a library to work with the datasets extracted from Coq and
 to directly interface with Coq through Tacticians API.
 - [PyTactician Library Documentation](https://coq-tactician.github.io/api/pytactician-pdoc).
+- To get started quickly, there are some simple [example
+  scripts](https://coq-tactician.github.io/api/pytactician-pdoc/pytact/scripts.html)
+  that interface with the [dataset](../datasets).
 
 In addition, PyTactician contains a number of executables that can be used to
 analyze datasets and interact with Coq. Available executables are as follows

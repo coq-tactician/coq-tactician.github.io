@@ -45,8 +45,15 @@ that want to develop new ideas, either independently or in collaboration with us
 If you'd like more information, please reach out to us!
 {{</ faq >}}
 
-{{< faq "How good is Tactician?" >}}
-todo
+{{< faq "How good is Tactician?" >}} As of January 2024, several of Tactician's
+models provide state-of-the-art proving performance. Evaluated over a wide range
+of Coq developments, the best models can prove up to 26% of theorems fully
+automatically. This outperforms all other provers we have made comparisons to.
+Performance between individual Coq packages fluctuates wildly. The best models
+as of 2024 are the built-in k-nearest neighbor model and
+[Graph2Tac](./api/graph2tac). The [Graph2Tac
+paper](https://arxiv.org/abs/2401.02949) contains an extensive analysis of the
+performance of several models.
 {{</ faq >}}
 
 {{< faq "What tools related to Tactician exist?" >}}

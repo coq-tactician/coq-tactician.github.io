@@ -46,10 +46,12 @@ model:
 - **Speed:** The k-NN model is two order of magnitude faster than Graph2Tac,
   which in turn is an order of magnitude faster than Text2Tac.
 
-Below is an overview of how Graph2Tac is trained to create definition
-embeddings and predict tactics and arguments.
+Below is an overview of how Graph2Tac is trained to create definition embeddings
+and predict tactics and arguments. See the
+[paper](https://arxiv.org/abs/2401.02949) for more information on the
+architecture and performance of these models.
 
-<img src="/images/graph2tac-overview.svg" alt="Graph2Tac Overview" width="100%">
+<img src="/images/graph2tac-overview.png" alt="Graph2Tac Overview" width="100%">
 
 ### Installation
 
@@ -62,8 +64,8 @@ Graph2Tac is compatible with Python 3.9-3.11, while Text2Tac is compatible with
 Python 3.9-3.10. Install one (or both) of the agents using:
 
 ```bash
-pip install -i https://pypi.org/simple --extra-index-url https://test.pypi.org/simple/ graph2tac==1.0.4
-pip install -i https://pypi.org/simple --extra-index-url https://test.pypi.org/simple/ text2tac==0.1
+pip install graph2tac==1.0
+pip install text2tac==1.0
 ```
 
 Make sure that whenever you start Coq, the virtualenv where you made the
