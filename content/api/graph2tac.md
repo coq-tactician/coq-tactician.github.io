@@ -84,11 +84,12 @@ Make sure that you have an Opam switch available with the Coq repositories
 available. For example, you can create one as follows:
 
 ```bash
-opam switch create tactician ocaml-base-compiler.4.12.1 --repos=custom-archive=git+https://github.com/LasseBlaauwbroek/custom-archive.git,coq-released=https://coq.inria.fr/opam/released,default
+opam switch create tactician ocaml-base-compiler.4.11.2 --repos=custom-archive=git+https://github.com/LasseBlaauwbroek/custom-archive.git,coq-released=https://coq.inria.fr/opam/released,default
 ```
 
 (This command includes the `custom-archive` repo, which contains some bugfixes
-for Coq. This is optional.)
+for Coq. This is optional. **Note for MacOS:** On MacOS, you will encounter bugs
+with `ocaml-base-compiler.4.11.2`. You must use `ocaml-base-compiler.4.12.1`.
 
 Then run either one of these commands (you cannot run both; `coq-graph2tac` and
 `coq-text2tac` are mutually incompatible).
