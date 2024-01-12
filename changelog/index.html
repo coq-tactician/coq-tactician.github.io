@@ -150,9 +150,9 @@ theorems in Coq projects with new definitions not seen during training.</p>
 <ol>
 <li>A novel method of calculating an internal representation of definitions and
 theorems, giving Graph2Tac a deeper semantic understanding of a proof state
-and which lemmas are appropriate for it. Graph2Tac is able to create
-representations of objects that were not seen during training, allowing it to
-perform well even on new Coq projects.</li>
+and which lemmas are appropriate for it. Graph2Tac can create representations
+of objects that were not seen during training, allowing it to perform well
+even on new Coq projects.</li>
 <li>One of the most comprehensive studies yet of various AI methods in
 interactive theorem proving including k-NN solvers, transformers, graph-based
 models, and hammers.</li>
@@ -180,21 +180,21 @@ transformations</a>.</p>
 <p>The dataset contains two representations. The text-based, human-readable
 representation is useful for training language models. The graph-based
 representation is designed such that two terms are alpha-equivalent terms if and
-only if their the forward closure of their graphs are equivalent
-(<a href="https://en.wikipedia.org/wiki/Bisimulation">bisimilar</a>). This allows us to merge alpha-equivalent subterms, heavily
-compressing the dataset. Having a densely connected graph makes it ideal for
-graph-based machine learning models. To support this term-sharing, we introduce
-a <a href="https://arxiv.org/abs/2401.02948">novel graph sharing algorithm</a> with <code>O(n log n)</code> complexity.</p>
+only if the forward closure of their graphs is equivalent (<a href="https://en.wikipedia.org/wiki/Bisimulation">bisimilar</a>).
+This allows us to merge alpha-equivalent subterms, heavily compressing the
+dataset. Having a densely connected graph makes it ideal for graph-based machine
+learning models. To support this term-sharing, we introduce a <a href="https://arxiv.org/abs/2401.02948">novel
+graph-sharing algorithm</a> with <code>O(n log n)</code> complexity.</p>
 <p><img src="https://coq-tactician.github.io/images/web.png" alt="Visualization of Coq&rsquo;s universe of mathematical knowledge"></p>
 <p><a href="https://coq-tactician.github.io/api/graph2tac/"><strong>Graph2Tac</strong></a>: In practical AI theorem proving, one of the main challenges
-is handing new definitions and theorems not seen during training. We want to
-have a model which can work online, adapting itself to users&rsquo; new projects in
-real time, so we train on one set of projects and test on another set never seen
+is handling new definitions and theorems not seen during training. We want a
+model which can work online, adapting itself to users&rsquo; new projects in real
+time, so we train on one set of projects and test on another set never seen
 during training. Our novel neural theorem proving architecture, Graph2Tac, adds
-a new definition task mechanism which improves theorems solved from 17.4% to
+a new definition task mechanism that improves theorems solved from 17.4% to
 26.1%. For example, even though our model has never before seen the Poltac
-package, it is able to solve 86.7% of Poltac theorems, more than any other Coq
-theorem prover in the literature, including ProverBot9001 and CoqHammer.</p>
+package, it can solve 86.7% of Poltac theorems, more than any other Coq theorem
+prover in the literature, including ProverBot9001 and CoqHammer.</p>
 <p>Our definition task works by learning an embedding for each definition and
 theorem in the training set, and then simultaneously training a model to predict
 those learned embeddings. At inference time, when we encounter a new definition
@@ -205,8 +205,8 @@ directly.</p>
 methods, including CoqHammer, a baseline transformer, and Tactician&rsquo;s built-in
 k-NN model. The transformer model is similar to those used in GPT-f, PACT, Lisa,
 etc. The k-NN model is also an online model, learning from proofs or recent
-theorems, and is actually still a really good model for short time periods, say
-one minute, whereas Graph2Tac excels at the longer 10 minute mark. Appendix H of
+theorems, and is actually still an excellent model for short time periods, say
+one minute, whereas Graph2Tac excels at the longer 10-minute mark. Appendix H of
 our <a href="https://arxiv.org/pdf/2401.02949v2.pdf#page=22">paper</a> also provides an informal comparison with Proverbot9001 and
 CoqGym family of solvers. We hope these comparisons will provide a lot of
 discussion and move the field forward.</p>
@@ -228,7 +228,7 @@ interface with Coq.</p>
 <li>
 <p><a href="https://github.com/coq-tactician/benchmark-system"><em>Benchmarking</em></a>: Tools to evaluate the proving strength of agents on
 arbitrary Opam packages. Benchmarks can be run on a laptop, a high-powered
-server and even massively parallelized on a High Perfomance Computing (HPC)
+server and even massively parallelized on a High Performance Computing (HPC)
 cluster.</p>
 </li>
 </ul>
