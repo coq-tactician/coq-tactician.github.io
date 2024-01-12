@@ -4,67 +4,137 @@ layout: "changelog"
 draft: false
 ---
 
-### Announcing Graph2Tac and Text2Tac provers based on Tactician's API for external agents
+### Announcing Graph2Tac, a prover based on Tactician's API for external agents
 
-We are happy to announce the availability of two neural proving agents,
-[Graph2Tac & Text2Tac](https://coq-tactician.github.io/api/graph2tac/), based on
-Tactician's new [API for external
-agents](https://coq-tactician.github.io/api/introduction/). These agents help
-proof engineers synthesize new tactic proofs. Both systems take a deep learning
-approach to predict appropriate tactics for proof states:
+We are pleased to announce [Tactician's API][1], a new AI interface for theorem
+proving, building on [Tactician][2]. This includes a new graph-based dataset of
+over 520k definitions (of which 260k are theorems) in 120 Coq packages, one of
+the largest datasets for AI interactive theorem proving. We also present a new
+state-of-the-art neural theorem proving solver Graph2Tac, designed for proving
+theorems in Coq projects with new definitions not seen during training.
 
-- **Graph2Tac** is a novel graph neural network architecture. It's crucial
-  innovation is that it can build an understanding of the math concepts in an
-  entire Coq development and all of its dependencies on-the-fly. That is, it
-  analyzes the structure of definitions and lemmas and builds an internal
-  representation of each object in the global context. Then, when presented with
-  a proof state that references these mathematical concepts, Graph2Tac can
-  leverage its deep knowledge to predict tactics and arguments.
-- **Text2Tac** is a language model for synthesizing tactics. It receives the
-  current proof state as a human-readable prompt and “completes” this prompt by
-  synthesizing a tactic.
+[1]: https://coq-tactician.github.io/api/introduction/
+[2]: https://coq-tactician.github.io/
 
-Both solvers are deeply integrated into Coq through the Tactician platform and
-its new API. Coq users can ask the models for tactic suggestions through the
-`Suggest` command. Proof search can be initiated with the `synth` tactic.
-Installation instructions can be found
-[here](https://coq-tactician.github.io/api/graph2tac/). Details on the
-architecture, and performance of the models are found in the paper [Graph2Tac:
-Learning Hierarchical Representations of Math Concepts in Theorem
-proving](https://arxiv.org/abs/2401.02949).
+The main contributions in this work are as follows:
+1. A novel method of calculating an internal representation of definitions and
+   theorems, giving Graph2Tac a deeper semantic understanding of a proof state
+   and which lemmas are appropriate for it. Graph2Tac is able to create
+   representations of objects that were not seen during training, allowing it to
+   perform well even on new Coq projects.
+2. One of the most comprehensive studies yet of various AI methods in
+   interactive theorem proving including k-NN solvers, transformers, graph-based
+   models, and hammers.
+3. An interface to Coq making it possible to train and connect your own custom
+   machine learning models.
+4. A benchmarking system making it easy to give an apples-to-apples comparison
+   to our work.
 
-Graph2Tac and Text2Tac are made possible by Tactician's new capability to export
-Coq's knowledge base to external agents. This allows solving agents to be
-written in any programming language, such as Python. Tactician's API is intended
-as a platform where machine learning researchers and proof engineers come
-together. Machine learning researchers can utilize Tactician's datasets,
-interaction protocols and benchmarking functionality to build and evaluate new
-proving agents. These agents can be integrated into the workflow of proof
-engineers. See the
-[introduction](https://coq-tactician.github.io/api/introduction/) for more
-information. The platform consists of the following components:
+For Coq users, our neural models [Graph2Tac and Text2Tac][3], are available as
+part of Tactician and can be run on a laptop (no GPU required). One can use
+Tactician's `Suggest` command to suggest tactics, and `synth` tactic to find a
+complete proof of a proof state.
 
-- **[Datasets](https://coq-tactician.github.io/api/datasets/)**: Pre-made, large-scale datasets of formal
-  knowledge extracted from a variety of Coq developments. Interactively explore
-  the dataset [here](http://grid01.ciirc.cvut.cz:8080/). The dataset includes [hierarchies](http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init) of modules, [global context](http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/context) information, [definitions](http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36), [tactical proofs](http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36/proof) and tactic [proof transformations](http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36/proof/step/4/outcome/0).
-  The dataset encodes data both as text and as a graph.
-  + The text-based representation is meant to be human-readable and would typically be used to train language models.
-  + The graph-based representation aims to provide complete and faithful
-    representation of Coq's internal knowledge. The graph is a single,
-    interconnected web of data that is designed to be as explicit as possible.
-    It would typically be used to train graph neural networks.
-- **[Interaction protocols](https://coq-tactician.github.io/api/commands/)**: External agents can interface with Coq, either by providing tactic predictions for Tactician's search procedure for the `synth` tactic, or by exploring the proof tree themselves through the `Tactician Explore` command. Agents receive a full copy of Coq's internal kernel knowledge, which they can utilize to make decisions.
-- **[PyTactician](https://coq-tactician.github.io/api/pytactician/)**: A Python library to facilitate reading the dataset and interface with Coq.
-- **[Benchmarking](https://github.com/coq-tactician/benchmark-system)**: Tools
-  to evaluate the proving strength of agents on arbitrary Opam packages.
-  Benchmarks can be run on a laptop, a high-powered server and even massively
-  parallelized on a High Perfomance Computing (HPC) cluster.
+[3]: https://coq-tactician.github.io/api/graph2tac/
 
-A detailed exposition on the datasets, the construction of the graph-based
-representation, construction of machine-readable tactic proofs and more can be
-found in these publications:
-- [The Tactician's Web of Large-Scale Formal Knowledge](https://arxiv.org/abs/2401.02950)
-- [Hashing Modulo Context-Sensitive α-Equivalence](https://arxiv.org/abs/2401.02948)
+The details are spelled out in these three papers:
+- [Graph2Tac: Learning Hierarchical Representations of Math Concepts in Theorem proving][4]
+- [The Tactician’s Web of Large-Scale Formal Knowledge][5]
+- [Hashing Modulo Context-Sensitive α-Equivalence][6]
+
+[4]: https://arxiv.org/abs/2401.02949
+[5]: https://arxiv.org/abs/2401.02950
+[6]: https://arxiv.org/abs/2401.02948
+
+[**Dataset**][7]: Our dataset, which can be [explored online][8], faithfully
+represents the internal representation of Coq's universe of mathematical
+knowledge as a single interconnected graph. The visualization includes
+[hierarchies of modules][9], [global context information][10],
+[definitions][11], [tactical proofs][12], and [tactic proof
+transformations][13].
+
+The dataset contains two representations. The text-based, human-readable
+representation is useful for training language models. The graph-based
+representation is designed such that two terms are alpha-equivalent terms if and
+only if their the forward closure of their graphs are equivalent
+([bisimilar][15]). This allows us to merge alpha-equivalent subterms, heavily
+compressing the dataset. Having a densely connected graph makes it ideal for
+graph-based machine learning models. To support this term-sharing, we introduce
+a [novel graph sharing algorithm][14] with `O(n log n)` complexity.
+
+[7]: https://coq-tactician.github.io/api/datasets/
+[8]: http://grid01.ciirc.cvut.cz:8080
+[9]: http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init
+[10]: http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/context
+[11]: http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36
+[12]: http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36/proof
+[13]: http://grid01.ciirc.cvut.cz:8080/coq-tactician-stdlib.8.11.dev/theories/Init/Logic/definition/36/proof/step/4/outcome/0
+
+[14]: https://arxiv.org/abs/2401.02948
+[15]: https://en.wikipedia.org/wiki/Bisimulation
+
+![Visualization of Coq's universe of mathematical knowledge](https://coq-tactician.github.io/images/web.png)
+
+[**Graph2Tac**][16]: In practical AI theorem proving, one of the main challenges
+is handing new definitions and theorems not seen during training. We want to
+have a model which can work online, adapting itself to users' new projects in
+real time, so we train on one set of projects and test on another set never seen
+during training. Our novel neural theorem proving architecture, Graph2Tac, adds
+a new definition task mechanism which improves theorems solved from 17.4% to
+26.1%. For example, even though our model has never before seen the Poltac
+package, it is able to solve 86.7% of Poltac theorems, more than any other Coq
+theorem prover in the literature, including ProverBot9001 and CoqHammer.
+
+[16]: https://coq-tactician.github.io/api/graph2tac/
+
+Our definition task works by learning an embedding for each definition and
+theorem in the training set, and then simultaneously training a model to predict
+those learned embeddings. At inference time, when we encounter a new definition
+not seen during training, we use this definition task to compute its embedding
+directly.
+
+![Graph2Tac overview](https://coq-tactician.github.io/images/graph2tac-overview.png)
+
+Our work contains one of the most extensive comparisons with other proving
+methods, including CoqHammer, a baseline transformer, and Tactician's built-in
+k-NN model. The transformer model is similar to those used in GPT-f, PACT, Lisa,
+etc. The k-NN model is also an online model, learning from proofs or recent
+theorems, and is actually still a really good model for short time periods, say
+one minute, whereas Graph2Tac excels at the longer 10 minute mark. Appendix H of
+our [paper][20] also provides an informal comparison with Proverbot9001 and
+CoqGym family of solvers. We hope these comparisons will provide a lot of
+discussion and move the field forward.
+
+![comparison](https://coq-tactician.github.io/images/model_times.png)
+
+**Tools for AI research** We provide a lot of tools for AI researchers who would
+like to compare with or build on our results and for Coq developers who would
+like to build practical tools for Coq users.
+
+- [*Interaction protocols*][17]: External agents can interface with Coq, either by
+providing tactic predictions for Tactician’s search procedure for the `synth`
+tactic, or by exploring the proof tree themselves through the `Tactician
+Explore` command. Agents receive a full copy of Coq’s internal kernel knowledge,
+which they can utilize to make decisions.
+
+- [*PyTactician*][18]: A Python library to facilitate reading the dataset and
+interface with Coq.
+
+- [*Benchmarking*][19]: Tools to evaluate the proving strength of agents on
+arbitrary Opam packages. Benchmarks can be run on a laptop, a high-powered
+server and even massively parallelized on a High Perfomance Computing (HPC)
+cluster.
+
+We would love to receive feedback both from Coq users and AI researchers,
+including possible future collaborators!
+
+Lasse Blaauwbroek, Jason Rute, Miroslav Olšák, Fidel Ivan Schaposnik Massolo,
+Jelle Piepenbrock, Vasily Pestun
+
+[17]: https://coq-tactician.github.io/api/commands/
+[18]: https://coq-tactician.github.io/api/pytactician/
+[19]: https://github.com/coq-tactician/benchmark-system
+[20]: https://arxiv.org/pdf/2401.02949v2.pdf#page=22
 
 ### Announcing Tactician version 1.0 beta2
 
