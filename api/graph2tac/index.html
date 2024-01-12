@@ -435,9 +435,10 @@ system does not readily provide these packages, please consult the
 page on Github for alternatives.</p>
 <p>Make sure that you have an Opam switch available with the Coq repositories
 available. For example, you can create one as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone git@github.com:LasseBlaauwbroek/opam-coq-archive.git --depth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>opam switch create tactician ocaml-base-compiler.4.11.2 --repos<span style="color:#f92672">=</span>coq-released-lasse<span style="color:#f92672">=</span>file://opam-coq-archive/released,default
-</span></span></code></pre></div><p>Then run either one of these commands (you cannot run both; <code>coq-graph2tac</code> and
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>opam switch create tactician ocaml-base-compiler.4.12.1 --repos<span style="color:#f92672">=</span>custom-archive<span style="color:#f92672">=</span>git+https://github.com/LasseBlaauwbroek/custom-archive.git,coq-released<span style="color:#f92672">=</span>https://coq.inria.fr/opam/released,default
+</span></span></code></pre></div><p>(This command includes the <code>custom-archive</code> repo, which contains some bugfixes
+for Coq. This is optional.)</p>
+<p>Then run either one of these commands (you cannot run both; <code>coq-graph2tac</code> and
 <code>coq-text2tac</code> are mutually incompatible).</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>opam install coq-graph2tac coq-tactician-stdlib
 </span></span><span style="display:flex;"><span>opam install coq-text2tac coq-tactician-stdlib
