@@ -4,7 +4,7 @@ layout: "changelog"
 draft: false
 ---
 
-### Announcing Graph2Tac, a prover based on Tactician's API for external agents
+### Announcing Graph2Tac, a prover based on Tactician's new API
 
 We are pleased to announce [Tactician's API][1], a new AI interface for theorem
 proving, building on [Tactician][2]. This includes a new graph-based dataset of
