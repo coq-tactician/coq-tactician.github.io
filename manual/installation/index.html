@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Tactician">
   
-  <meta name="generator" content="Hugo 0.119.0">
+  <meta name="generator" content="Hugo 0.140.1">
 
   
   
@@ -37,16 +37,15 @@
   
 
   
-  <meta property="og:title" content="Installation" />
-<meta property="og:description" content="Windows We recommend that you install Tactician either in a virtual machine, or under the Windows Subsystem for Linux. Instructions for installing Coq in this environment can be found here. Further installation of Tactician is analogous to the Linux and macOS instructions
-Alternatively, we offer an experimental, unsigned installer based on Coq&rsquo;s installer for Windows. Although all basic functionality works, this version is limited because it is difficult to impossible to install additional packages, and therefore it is also difficult to impossible for Tactician to learn from such packages." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://coq-tactician.github.io/manual/installation/" /><meta property="article:section" content="manual" />
+  <meta property="og:url" content="https://coq-tactician.github.io/manual/installation/">
+  <meta property="og:site_name" content="Tactician">
+  <meta property="og:title" content="Installation">
+  <meta property="og:description" content="Windows We recommend that you install Tactician either in a virtual machine, or under the Windows Subsystem for Linux. Instructions for installing Coq in this environment can be found here. Further installation of Tactician is analogous to the Linux and macOS instructions
+Alternatively, we offer an experimental, unsigned installer based on Coq’s installer for Windows. Although all basic functionality works, this version is limited because it is difficult to impossible to install additional packages, and therefore it is also difficult to impossible for Tactician to learn from such packages.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="manual">
 
-
-
-  
-  
 
 </head>
 <body><!-- navigation -->
@@ -371,7 +370,7 @@ Alternatively, we offer an experimental, unsigned installer based on Coq&rsquo;s
 <p>We recommend that you install Tactician either in a virtual machine, or under the Windows Subsystem for Linux.
 Instructions for installing Coq in this environment can be found
 <a href="https://github.com/coq/coq/wiki/Installation-of-Coq-on-Windows">here</a>. Further installation of Tactician
-is analogous to the <a href="#linux-and-macos">Linux and macOS instructions</a></p>
+is analogous to the <a href="/manual/installation/#linux-and-macos">Linux and macOS instructions</a></p>
 <p>Alternatively, we offer an experimental, unsigned installer based on Coq&rsquo;s installer for Windows.
 Although all basic functionality works, this version is limited because it is difficult to impossible
 to install additional packages, and therefore it is also difficult to impossible for Tactician to learn
@@ -379,7 +378,7 @@ from such packages.</p>
 <h4 id="linux-and-macos">Linux and macOS</h4>
 <p><strong>Note:</strong> On macOS the instrumentation of packages currently only works in the development version of Tactician.</p>
 <p>Below are detailed instructions to install Coq and Tactician through the Opam package manager.
-If you are already familiar with Coq and Opam, you can find a summary <a href="/manual">here</a>.</p>
+If you are already familiar with Coq and Opam, you can find a summary <a href="/manual/">here</a>.</p>
 <h4 id="prerequisites">Prerequisites</h4>
 <p>The installation of Coq and Tactician happens through <a href="https://opam.ocaml.org/">Opam</a>.
 If you already have a version of Coq installed through the package manager of your linux distribution
@@ -414,13 +413,13 @@ re-run these commands</p>
 <p>After installation, Tactician is not immediately enabled. This can be done by running the command
 <code>tactician enable</code>. This command will add some code to your <code>coqrc</code> file (a file that
 Coq loads automatically every time it is started) that will load Tactician. Further information about
-why Tactician is loaded this way can be found <a href="/manual/coq-packages">here</a>. If you wish to disable
+why Tactician is loaded this way can be found <a href="/manual/coq-packages/">here</a>. If you wish to disable
 Tactician, this can be done with the command <code>tactician disable</code>.</p>
 <h4 id="trying-an-example">Trying an example</h4>
 <p>Tactician should now be ready to work. To make sure of this, you can test Tactician on an example file.
 First, start the Coq editor using the command</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>coqide &amp;
-</span></span></code></pre></div><p>Then open the <a href="Example.v">example file</a> into the editor, and play around with it (moving around the
+</span></span></code></pre></div><p>Then open the <a href="../../Example.v">example file</a> into the editor, and play around with it (moving around the
 document in CoqIde happens using the arrows at the top). Make sure that the two new commands provided
 by Tactician, <code>Suggest</code> and <code>synth</code> function properly.</p>
 <h4 id="installation-of-tactician-for-coq-versions--v817-1">Installation of Tactician for Coq versions &lt; v8.17</h4>

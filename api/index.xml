@@ -4,57 +4,43 @@
     <title>API on Tactician</title>
     <link>https://coq-tactician.github.io/api/</link>
     <description>Recent content in API on Tactician</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://coq-tactician.github.io/api/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://coq-tactician.github.io/api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>API Introduction</title>
       <link>https://coq-tactician.github.io/api/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://coq-tactician.github.io/api/introduction/</guid>
-      <description>Tactician&amp;rsquo;s API provides external machine learning agents with Coq&amp;rsquo;s internal knowledge-base of mathematics. It can extract large-scale datasets from a wide variety of Coq packages for the purpose of offline machine learning. Additionally, it allows agents to interact with Coq. Proving servers can be connected to Tactician&amp;rsquo;s synth tactic and prove theorems for Coq users. Additionally, servers can do proof exploration through the Tactician Explore command. Examples of external proving agents include Graph2Tac &amp;amp; Text2Tac.</description>
+      <description>&lt;img src=&#34;https://coq-tactician.github.io/images/web.png&#34; alt=&#34;Web&#34; width=&#34;100%&#34;/&gt;&#xA;&lt;p&gt;Tactician&amp;rsquo;s API provides external machine learning agents with Coq&amp;rsquo;s internal&#xA;knowledge-base of mathematics. It can extract large-scale datasets from a wide&#xA;variety of Coq packages for the purpose of offline machine learning.&#xA;Additionally, it allows agents to interact with Coq. Proving servers can be&#xA;connected to Tactician&amp;rsquo;s &lt;code&gt;synth&lt;/code&gt; tactic and prove theorems for Coq users.&#xA;Additionally, servers can do proof exploration through the &lt;code&gt;Tactician Explore&lt;/code&gt;&#xA;command. Examples of external proving agents include &lt;a href=&#34;../graph2tac&#34;&gt;Graph2Tac &amp;amp; Text2Tac&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Graph2Tac &amp; Text2Tac</title>
       <link>https://coq-tactician.github.io/api/graph2tac/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://coq-tactician.github.io/api/graph2tac/</guid>
-      <description>Graph2Tac is a novel neural network architecture for predicting appropriate tactics for proof states. The crucial innovation of Graph2Tac is that it can build an understanding of the math concepts in an entire Coq development and all of its dependencies on-the-fly. That is, it analyzes the structure of definitions and lemmas and builds an internal representation of each object in the global context. Then, when presented with a proof state that references these mathematical concepts, Graph2Tac can leverage its deep knowledge to predict tactics and arguments.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Graph2Tac&lt;/strong&gt; is a novel neural network architecture for predicting appropriate&#xA;tactics for proof states. The crucial innovation of Graph2Tac is that it can&#xA;build an understanding of the math concepts in an entire Coq development and all&#xA;of its dependencies on-the-fly. That is, it analyzes the structure of&#xA;definitions and lemmas and builds an internal representation of each object in&#xA;the global context. Then, when presented with a proof state that references&#xA;these mathematical concepts, Graph2Tac can leverage its deep knowledge to&#xA;predict tactics and arguments.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Coq Commands</title>
       <link>https://coq-tactician.github.io/api/commands/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://coq-tactician.github.io/api/commands/</guid>
-      <description>The package coq-tactician-api makes some commands available in addition to the usual commands listed in the manual. You should install this package when you wish to build your own external agent. (Both Graph2Tac and Text2Tac depend on this package.)
-Graph Visualizations These commands will create a graph of some object, and write it to graph.pdf (if graphviz is available).
-The following commands are always available:
-[Shared] Graph [Depth &amp;lt;n&amp;gt;] Ident identifier.</description>
+      <description>&lt;p&gt;The package &lt;code&gt;coq-tactician-api&lt;/code&gt; makes some commands available in addition to the&#xA;usual commands listed in the &lt;a href=&#34;https://coq-tactician.github.io/manual/usage/&#34;&gt;manual&lt;/a&gt;. You should install&#xA;this package when you wish to build your own external agent. (Both Graph2Tac and&#xA;Text2Tac depend on this package.)&lt;/p&gt;&#xA;&lt;h3 id=&#34;graph-visualizations&#34;&gt;Graph Visualizations&lt;/h3&gt;&#xA;&lt;p&gt;These commands will create a graph of some object, and write it to &lt;code&gt;graph.pdf&lt;/code&gt;&#xA;(if &lt;code&gt;graphviz&lt;/code&gt; is available).&lt;/p&gt;&#xA;&lt;p&gt;The following commands are always available:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[Shared] Graph [Depth &amp;lt;n&amp;gt;] Ident identifier.&#xA;[Shared] Graph [Depth &amp;lt;n&amp;gt;] Term term.&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The normal commands print a fully transitive graph. Adding &lt;code&gt;Depth i&lt;/code&gt; limits the&#xA;traversal to visiting at most &lt;code&gt;i&lt;/code&gt; nested definitions.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>PyTactician</title>
       <link>https://coq-tactician.github.io/api/pytactician/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://coq-tactician.github.io/api/pytactician/</guid>
-      <description>PyTactician is a library to help write proving agents and explore datasets. The major version number x of this library indicates the version of the dataset and communication protocol. Any PyTactician version x.y is compatible with the communication protocol x.
-Installation Binary wheels are provided for Linux and MacOS (on PyPI). On those platforms you can install by executing pip install pytactician. If you need to install from source, you need to have Cap&amp;rsquo;n Proto &amp;gt;= 0.</description>
+      <description>&lt;p&gt;PyTactician is a library to help write proving agents and explore datasets.&#xA;The major version number &lt;code&gt;x&lt;/code&gt; of this library&#xA;indicates the version of the dataset and communication protocol. Any PyTactician&#xA;version &lt;code&gt;x.y&lt;/code&gt; is compatible with the communication protocol &lt;code&gt;x&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;&#xA;&lt;p&gt;Binary wheels are provided for Linux and MacOS (on&#xA;&lt;a href=&#34;https://pypi.org/project/pytactician&#34;&gt;PyPI&lt;/a&gt;). On those platforms you can&#xA;install by executing &lt;code&gt;pip install pytactician&lt;/code&gt;. If you need to install from&#xA;source, you need to have Cap&amp;rsquo;n Proto &amp;gt;= 0.8 installed on your system. See the&#xA;main repo&#xA;&lt;a href=&#34;https://github.com/coq-tactician/coq-tactician-api#prerequisites&#34;&gt;README&lt;/a&gt; for&#xA;more details on prerequisites. Once you have the prerequisites, you can install&#xA;by running &lt;code&gt;pip install .&lt;/code&gt; from the root of the repository.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Datasets</title>
       <link>https://coq-tactician.github.io/api/datasets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://coq-tactician.github.io/api/datasets/</guid>
-      <description>Online Data Explorer You can explore and visualize the latest dataset that has been extracted from Coq online. The visualization should give you some intuition about what kind of data is available and how it is encoded. If this data is interesting to you, you can find download and usage instructions below.
-You can find the main entry-point for the visualization here. From there, you can explore the entire dataset. Examples of objects include:</description>
+      <description>&lt;h4 id=&#34;online-data-explorer&#34;&gt;Online Data Explorer&lt;/h4&gt;&#xA;&lt;p&gt;You can explore and visualize the latest dataset that has been extracted from&#xA;Coq online. The visualization should give you some intuition about what kind of&#xA;data is available and how it is encoded. If this data is interesting to you, you&#xA;can find download and usage instructions below.&lt;/p&gt;&#xA;&lt;img src=&#34;https://coq-tactician.github.io/images/visualization_example.svg&#34; alt=&#34;Visualization Example&#34; style=&#34;float:right&#34; width=&#34;40%&#34;&gt;&#xA;&lt;p&gt;You can find the main entry-point for the visualization &lt;a href=&#34;http://grid01.ciirc.cvut.cz:8080/&#34;&gt;here&lt;/a&gt;.&#xA;From there, you can explore the entire dataset. Examples of objects include:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

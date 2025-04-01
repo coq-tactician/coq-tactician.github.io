@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Tactician">
   
-  <meta name="generator" content="Hugo 0.119.0">
+  <meta name="generator" content="Hugo 0.140.1">
 
   
   
@@ -37,15 +37,14 @@
   
 
   
-  <meta property="og:title" content="Graph2Tac &amp; Text2Tac" />
-<meta property="og:description" content="Graph2Tac is a novel neural network architecture for predicting appropriate tactics for proof states. The crucial innovation of Graph2Tac is that it can build an understanding of the math concepts in an entire Coq development and all of its dependencies on-the-fly. That is, it analyzes the structure of definitions and lemmas and builds an internal representation of each object in the global context. Then, when presented with a proof state that references these mathematical concepts, Graph2Tac can leverage its deep knowledge to predict tactics and arguments." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://coq-tactician.github.io/api/graph2tac/" /><meta property="article:section" content="api" />
+  <meta property="og:url" content="https://coq-tactician.github.io/api/graph2tac/">
+  <meta property="og:site_name" content="Tactician">
+  <meta property="og:title" content="Graph2Tac & Text2Tac">
+  <meta property="og:description" content="Graph2Tac is a novel neural network architecture for predicting appropriate tactics for proof states. The crucial innovation of Graph2Tac is that it can build an understanding of the math concepts in an entire Coq development and all of its dependencies on-the-fly. That is, it analyzes the structure of definitions and lemmas and builds an internal representation of each object in the global context. Then, when presented with a proof state that references these mathematical concepts, Graph2Tac can leverage its deep knowledge to predict tactics and arguments.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="api">
 
-
-
-  
-  
 
 </head>
 <body><!-- navigation -->
@@ -460,7 +459,7 @@ this when starting your editor or when building a project using <code>dune</code
 </span></span></code></pre></div><p>Usage of Graph2Tac and Text2Tac is similar to the usage of Tactician&rsquo;s default
 model. You can ask the model for <code>Suggest</code>ions and ask it to <code>synth</code>esize
 proofs. More detailed descriptions of Tactician&rsquo;s tactics are commands are in
-the <a href="../../manual/usage">manual</a>.</p>
+the <a href="/manual/usage/">manual</a>.</p>
 <p>There is one important additional command to use. Tactician&rsquo;s API synchronizes
 Coq&rsquo;s entire global context with the external agent when it starts a proof
 search. This can be an expensive operation. However, it is possible to introduce
