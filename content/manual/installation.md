@@ -82,7 +82,7 @@ First, start the Coq editor using the command
 coqide &
 ```
 
-Then open the [example file](Example.v) into the editor, and play around with it (moving around the
+Then open the [example file](../../Example.v) into the editor, and play around with it (moving around the
 document in CoqIde happens using the arrows at the top). Make sure that the two new commands provided
 by Tactician, `Suggest` and `synth` function properly.
 
